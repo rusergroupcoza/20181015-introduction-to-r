@@ -30,6 +30,12 @@ r_github_packages:
 script:
  - Rscript -e "rmarkdown::render('index.Rmd', output_dir = 'public')"
 
+after_success:
+ - cp -r assets public
+ - cp -r data public
+ - cp -r imgs public
+ - cp -r libs public
+ 
 notifications:
   email:
     on_success: change
