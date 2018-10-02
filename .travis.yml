@@ -28,7 +28,7 @@ r_github_packages:
  - jennybc/gapminder
 
 script:
- - Rscript -e "rmarkdown::render('index.Rmd')"
+ - Rscript -e "rmarkdown::render('index.Rmd', output_dir = 'public')"
 
 notifications:
   email:
@@ -37,7 +37,7 @@ notifications:
 
 deploy:
   provider: pages
-  local_dir: /
+  local_dir: /public
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep-history: true
