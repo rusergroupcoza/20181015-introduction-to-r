@@ -6,6 +6,12 @@ branches:
   except:
     - gh-pages
 
+apt_packages:
+ - libudunits2-dev
+ - libgdal-dev
+ - libgeos-dev
+ - libproj-dev
+
 ## Packages not listed as a dependency in DESCRIPTION can be installed here
 r_packages:
  - devtools
