@@ -5,9 +5,17 @@ branches:
   except:
     - gh-pages
 
+r_packages:
+ - devtools
+ - emitanaka/xaringan
+ - emitanaka/anicon
+ - njtierney/ukpolice
+ - hadley/babynames
+ - jennybc/gapminder
+ - sf
+  
 script:
-  - Rscript -e "install.packages('devtools')"  
-  - Rscript -e "devtools::install_github('emitanaka/xaringan');devtools::install_github('emitanaka/icon');devtools::install_github('emitanaka/anicon')"
+ - Rscript -e "rmarkdown::render('index.Rmd')"
 
 notifications:
   email:
