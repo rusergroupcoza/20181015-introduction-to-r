@@ -6,7 +6,7 @@ output:
   xaringan::moon_reader:
     seal: false
     lib_dir: libs
-    css: ["kunoichi", "ninjutsu" , "assets/ninpo.css"]
+    css: ["assets/kunoichi.css", "assets/ninpo.css", "assets/ninjutsu.css"]
     self_contained: false
     nature:
       ratio: "16:9"
@@ -27,9 +27,9 @@ knitr::opts_chunk$set(
   fig.height = 5
 )
 options(htmltools.dir.version = FALSE)
-library(gapminder)
-library(ggplot2)
 ```
+
+---
 
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
@@ -63,6 +63,8 @@ background-size: cover
 # With Info
 
 ```{r, results='hide'}
+library(gapminder)
+library(ggplot2)
 p <- ggplot(gapminder) +
   geom_point(aes(x = continent, y = lifeExp,
                  label = continent))
@@ -136,7 +138,7 @@ p
 #https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
 geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
-geo
+head(geo)
 ```
 
 ---
