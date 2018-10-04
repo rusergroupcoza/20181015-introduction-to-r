@@ -4,9 +4,9 @@ author: "Luis de Sousa"
 date: "2018/10/01 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
-    seal: false
     lib_dir: libs
-    css: ["assets/kunoichi.css", "assets/ninpo.css", "assets/ninjutsu.css"]
+    css: ["assets/kunoichi.css", "assets/ninjutsu.css" , "assets/ninpo.css"]
+    seal: true
     self_contained: false
     nature:
       ratio: "16:9"
@@ -41,6 +41,56 @@ background-size: cover
 
 ---
 
+layout: false
+class: split-20
+
+.row[.content.vmiddle.left[
+.font4[# Resources `r anicon::faa("graduation-cap", animate="tada")`]
+]]
+
+.row[.content[.split-three[
+  .column[.content.center[
+  ### `r anicon::faa("podcast", animate="float")` [**Not So Standard Deviations**](http://nssdeviations.com/)<br>
+#### Hilary Parker `r anicon::faa("twitter", animate="pulse")`&nbsp; [@hspter](http://twitter.com/hspter)<br>
+#### Roger Peng `r anicon::faa("twitter", animate="pulse")`&nbsp; [@rdpeng](http://twitter.com/rdpeng)<br>
+<br>
+### `r anicon::faa("podcast", animate="float")` [**Credibly Curious**](https://soundcloud.com/crediblycurious)<br>
+#### Saskia Freytag `r anicon::faa("twitter", animate="pulse")`&nbsp; [@trashystats](http://twitter.com/trashystats)<br>
+#### Nicholas Tierney `r anicon::faa("twitter", animate="pulse")` [@nj_tierney](http://twitter.com/nj_tierney)<br>
+  ]]
+  
+  .column[.content.vtop.center[
+### `r anicon::faa("book", animate="float")` [**R for Data Science**](http://r4ds.had.co.nz/)<br>
+#### Garrett Grolemund `r anicon::faa("twitter", animate="pulse")`&nbsp; [@StatGarrett](http://twitter.com/StatGarrett)<br>
+#### Hadley Wickham `r anicon::faa("twitter", animate="pulse")`&nbsp; [@hadleywickham](hhttp://twitter.com/hadleywickham)
+<br>
+### `r anicon::faa("globe", animate="float")` [**RStudio Community**](https://community.rstudio.com/)<br>
+A community for all things R and RStudio.
+<br>
+### `r anicon::faa("globe", animate="float")` [**Stack Overflow**](https://stackoverflow.com/questions/tagged/r)<br>
+Community for developers to learn, share their knowledge, and build their careers.
+<br>
+
+### `r anicon::faa("globe", animate="float")` [**R-bloggers**](https://www.r-bloggers.com/)<br>
+The site helps R bloggers and users to connect and follow the “R blogosphere”
+  ]]
+  
+  .column[.content.vtop.center[
+  .font2[ClassifiqQDASAcation]<br>
+  <br>
+  ]]
+  ]]]
+
+
+???
+.column[.content.vmiddle.center[
+
+]]
+
+
+
+---
+layout: false
 # References
 
 * https://github.com/paulc91
