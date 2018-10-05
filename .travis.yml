@@ -30,14 +30,14 @@ r_github_packages:
 
 ## Render index.Rmd file to index.html
 script:
- - Rscript -e "rmarkdown::render('index.Rmd', output_dir = 'public')"
+ - Rscript -e "rmarkdown::render('index.Rmd')"
 
 ## Copy static content to folder that will be published
-after_success:
- - cp -r assets public/
- - cp -r data public/
- - cp -r imgs public/
- - cp -r libs public/
+#after_success:
+# - cp -r assets public/
+# - cp -r data public/
+# - cp -r imgs public/
+# - cp -r libs public/
  
 notifications:
   email:
@@ -47,7 +47,7 @@ notifications:
 ## Deploy public folder to gh-pages branch
 deploy:
   provider: pages
-  local_dir: /public
+  local_dir: /
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your Travis repository, as a secure variable
   keep-history: true
