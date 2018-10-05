@@ -1,0 +1,55 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+language: r
+cache: packages
+
+branches:
+  except:
+    - gh-pages
+
+## A list of packages to install from APT, used for installation and removal of software on Debian, Ubuntu and other Linux distributions.
+apt_packages:
+ - libudunits2-dev  # added for sf
+ - libgdal-dev      # added for sf
+ - libgeos-dev      # added for sf
+ - libproj-dev      # added for sf
+
+## Packages not listed as a dependency in DESCRIPTION can be installed here. Equivalent to running install.packages in R.
+r_packages:
+ - devtools
+ - sf
+ - tidyverse
+ - RMySQL
+
+## A list of packages to install directly from GitHub, using devtools::install_github from the devtools package. The package names here should be of the form user/repo
+r_github_packages:
+ - emitanaka/xaringan
+ - emitanaka/anicon
+ - njtierney/ukpolice
+ - hadley/babynames
+ - jennybc/gapminder
+
+## Render index.Rmd file to index.html
+script:
+ - Rscript -e "rmarkdown::render('index.Rmd')"
+
+## Copy static content to folder that will be published
+#after_success:
+# - cp -r assets public/
+# - cp -r data public/
+# - cp -r imgs public/
+# - cp -r libs public/
+ 
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+## Deploy public folder to gh-pages branch
+deploy:
+  provider: pages
+  local_dir: /
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your Travis repository, as a secure variable
+  keep-history: true
+  on:
+    branch: master
