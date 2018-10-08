@@ -38,6 +38,25 @@ Experience with R / Python / Excel
 
 ---
 
+layout: false
+class: split-70 hide-slide-number
+background-image: url("imgs/codeScreen.jpg")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.left[
+  .font5[Gemma Dawson]<br>
+  <img src="imgs/icepack_white.png" width="70%">
+]]
+
+.column[.content.vmiddle.right[
+### .white[`r anicon::faa("laptop", animate="float")`  www.icepack.ai]
+### .white[`r anicon::faa("github", animate="float")`  @GemmaDawson]
+### .white[`r anicon::faa("twitter", animate="float")`  @gemmadawsonza]
+]]
+
+---
+
 # Table of Contents
 
 * Why R? - G
