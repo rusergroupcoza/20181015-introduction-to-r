@@ -57,6 +57,25 @@ background-size: cover
 
 ---
 
+layout: false
+class: split-70 hide-slide-number
+background-image: url("imgs/codeScreen.jpg")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.left[
+  .font5[Luis de Sousa]<br>
+  <img src="imgs/syeop-logo.jpg" width="70%">
+]]
+
+.column[.content.vmiddle.right[
+### .white[`r anicon::faa("github", animate="float")`  @luisdza]
+### .white[`r anicon::faa("twitter", animate="float")`  @luis_de_sousa]
+### .white[`r anicon::faa("laptop", animate="float")`  growninconsultation.com]
+]]
+
+---
+
 # Table of Contents
 
 * Why R? - G
