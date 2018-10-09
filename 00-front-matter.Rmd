@@ -34,7 +34,15 @@ Experience with R / Python / Excel
 
 ---
 
-# Who are we?
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Who are we?]]]
+.column[
+]
 
 ---
 

@@ -28,6 +28,7 @@ r_github_packages:
  - njtierney/ukpolice
  - hadley/babynames
  - jennybc/gapminder
+ - romainfrancois/siesta
 
 ## Render index.Rmd file to index.html
 script:
