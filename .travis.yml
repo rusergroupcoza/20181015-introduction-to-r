@@ -25,9 +25,9 @@ r_packages:
 r_github_packages:
  - emitanaka/xaringan
  - emitanaka/anicon
- - njtierney/ukpolice
- - hadley/babynames
  - jennybc/gapminder
+# - njtierney/ukpolice
+# - hadley/babynames
 
 ## Render index.Rmd file to index.html
 script:

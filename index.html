@@ -30,7 +30,15 @@ Experience with R / Python / Excel
 
 ---
 
-# Who are we?
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Who are we?]]]
+.column[
+]
 
 ---
 
@@ -125,29 +133,36 @@ R can import data from a diverse set of data sources:
 
 
 ```r
-library(tidyverse) # load full suite of packages for data analysis
-exchange_rates &lt;- read.csv("data/ZAR_USD_Exchange_Rate_Detail_2000_to_2018-10-08.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
-exchange_rates &lt;- exchange_rates %&gt;% filter(Year == 2018 ) # import 2018 exchange rates
-head(exchange_rates) # view first 6 values
+library(tidyverse)
+exchange_rates &lt;- read.csv("data/ZAR_per_USD__Exchange_Rate_Detail_2000_to_2018-10.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
+exchange_rates &lt;- exchange_rates %&gt;%
+  filter(as.Date(exchange_rates$Date) &gt;= as.Date('2018-01-01')) # filter for 2018 exchange rates
+# show top and bottom 6 rows of data frame
+head(exchange_rates)
 ```
 
 ```
-##   Year       Date   Value
-## 1 2018 2018-10-08 14.9374
-## 2 2018 2018-10-05 14.7946
-## 3 2018 2018-10-04 14.7287
-## 4 2018 2018-10-03 14.3426
-## 5 2018 2018-10-02 14.3202
-## 6 2018 2018-10-01 14.1090
+##         Date   Value
+## 1 2018-10-01 14.1090
+## 2 2018-09-28 14.1581
+## 3 2018-09-27 14.1595
+## 4 2018-09-26 14.2923
+## 5 2018-09-25 14.4062
+## 6 2018-09-21 14.2430
 ```
 
 ```r
-summary(exchange_rates$Value) # summary statistics of Value field
+tail(exchange_rates)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   11.56   12.03   12.58   12.95   13.70   15.55
+##           Date   Value
+## 183 2018-01-09 12.4230
+## 184 2018-01-08 12.3946
+## 185 2018-01-05 12.3477
+## 186 2018-01-04 12.3018
+## 187 2018-01-03 12.3954
+## 188 2018-01-02 12.3330
 ```
 
 ---
@@ -200,8 +215,6 @@ tail(combined_data)
 ---
 
 # Importing Data - SPSS
-
-You don't have to pay expensive SPSS licenses to analyse your survey data!
 
 
 ```r
@@ -379,30 +392,33 @@ cities
 
 ---
 
-# Web APIs
-
-* Many R packages make it easy for you to pull publicly available data via an API (application programming interface).
-* The code below retrieves data from the UK police database within 1 mile of the coordinates you provide for the latest available month.
+# Importing Data - Web APIs
 
 
 ```r
-library(ukpolice) # R wrapper to the UK Police API
-crime_data &lt;- ukp_crime(lat = 51.533802, lng = -0.092715)
-head(crime_data)
+library(httr)
+library(jsonlite)
+
+github &lt;- fromJSON("https://api.github.com/users/hadley/orgs")
+names(github)
 ```
 
 ```
-## # A tibble: 6 x 12
-##   category persistent_id date    lat    long street_id street_name context
-##   &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;  
-## 1 anti-so… ""            2018…  51.5 -0.0714 964344    On or near… ""     
-## 2 anti-so… ""            2018…  51.5 -0.0991 964444    On or near… ""     
-## 3 anti-so… 7af4e0063af3… 2018…  51.5 -0.0977 587624    On or near… ""     
-## 4 anti-so… ""            2018…  51.5 -0.0706 961395    On or near… ""     
-## 5 anti-so… ""            2018…  51.5 -0.0706 961395    On or near… ""     
-## 6 anti-so… ""            2018…  51.5 -0.0805 961523    On or near… ""     
-## # ... with 4 more variables: id &lt;chr&gt;, location_type &lt;chr&gt;,
-## #   location_subtype &lt;chr&gt;, outcome_status &lt;chr&gt;
+##  [1] "login"              "id"                 "node_id"           
+##  [4] "url"                "repos_url"          "events_url"        
+##  [7] "hooks_url"          "issues_url"         "members_url"       
+## [10] "public_members_url" "avatar_url"         "description"
+```
+
+```r
+github$login
+```
+
+```
+##  [1] "ggobi"             "rstudio"           "rstats"           
+##  [4] "ropensci"          "rjournal"          "r-dbi"            
+##  [7] "RConsortium"       "tidyverse"         "r-lib"            
+## [10] "rstudio-education"
 ```
 
 
@@ -568,7 +584,7 @@ head(geo)
 ggplot() + geom_sf(data = geo)
 ```
 
-![](imgs/unnamed-chunk-16-1.svg)&lt;!-- --&gt;
+![](imgs/unnamed-chunk-15-1.svg)&lt;!-- --&gt;
 
 ---
 

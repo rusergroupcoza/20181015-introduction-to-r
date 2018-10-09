@@ -54,11 +54,13 @@ R can import data from a diverse set of data sources:
 # Importing Data - CSV
 
 ```{r Import CSV}
-library(tidyverse) # load full suite of packages for data analysis
-exchange_rates <- read.csv("data/ZAR_USD_Exchange_Rate_Detail_2000_to_2018-10-08.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
-exchange_rates <- exchange_rates %>% filter(Year == 2018 ) # import 2018 exchange rates
-head(exchange_rates) # view first 6 values
-summary(exchange_rates$Value) # summary statistics of Value field
+library(tidyverse)
+exchange_rates <- read.csv("data/ZAR_per_USD__Exchange_Rate_Detail_2000_to_2018-10.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
+exchange_rates <- exchange_rates %>%
+  filter(as.Date(exchange_rates$Date) >= as.Date('2018-01-01')) # filter for 2018 exchange rates
+# show top and bottom 6 rows of data frame
+head(exchange_rates)
+tail(exchange_rates)
 ```
 
 ---
@@ -83,8 +85,6 @@ tail(combined_data)
 ---
 
 # Importing Data - SPSS
-
-You don't have to pay expensive SPSS licenses to analyse your survey data!
 
 ```{r, Import SPSS}
 library(haven) # for reading SPSS, SAS, STATA files
@@ -119,14 +119,14 @@ cities
 
 ---
 
-# Web APIs
+# Importing Data - Web APIs
 
-* Many R packages make it easy for you to pull publicly available data via an API (application programming interface).
-* The code below retrieves data from the UK police database within 1 mile of the coordinates you provide for the latest available month.
+```{r, Web APIs}
+library(httr)
+library(jsonlite)
 
-```{r}
-library(ukpolice) # R wrapper to the UK Police API
-crime_data <- ukp_crime(lat = 51.533802, lng = -0.092715)
-head(crime_data)
+github <- fromJSON("https://api.github.com/users/hadley/orgs")
+names(github)
+github$login
 ```
 
