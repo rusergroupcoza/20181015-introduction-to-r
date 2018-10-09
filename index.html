@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 
 # Introduction to R
 ### Gemma Dawson and Luis de Sousa
-### 2018/10/01 (updated: 2018-10-08)
+### 2018/10/01 (updated: 2018-10-09)
 
 ---
 
@@ -113,9 +113,9 @@ background-size: cover
 
 # Importing Data
 
-* R can import data from just about every form imaginable:
+R can import data from a diverse set of data sources:
 * Flat files like plain text and delimited data: .txt, .csv, .tsv
-* Data files from proprietary software like MS Excel, SPSS, SAS
+* Data files from proprietary software: MS Excel, SPSS, SAS
 * Directly from Databases: MySQL, MS SQL Server, PostgreSQL
 * Directly from the Web: APIs, JSON, Webscrape HTML
 
@@ -126,26 +126,28 @@ background-size: cover
 
 ```r
 library(tidyverse) # load full suite of packages for data analysis
-library(babynames) # Full baby name data provided by the SSA
-baby_names &lt;- babynames %&gt;% filter(sex == 'F') # import all female baby names
-baby_names # preview the data
+exchange_rates &lt;- read.csv("data/ZAR_USD_Exchange_Rate_Detail_2000_to_2018-10-08.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
+exchange_rates &lt;- exchange_rates %&gt;% filter(Year == 2018 ) # import 2018 exchange rates
+head(exchange_rates) # view first 6 values
 ```
 
 ```
-## # A tibble: 1,100,858 x 5
-##     year sex   name          n   prop
-##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;
-##  1  1880 F     Mary       7065 0.0724
-##  2  1880 F     Anna       2604 0.0267
-##  3  1880 F     Emma       2003 0.0205
-##  4  1880 F     Elizabeth  1939 0.0199
-##  5  1880 F     Minnie     1746 0.0179
-##  6  1880 F     Margaret   1578 0.0162
-##  7  1880 F     Ida        1472 0.0151
-##  8  1880 F     Alice      1414 0.0145
-##  9  1880 F     Bertha     1320 0.0135
-## 10  1880 F     Sarah      1288 0.0132
-## # ... with 1,100,848 more rows
+##   Year       Date   Value
+## 1 2018 2018-10-08 14.9374
+## 2 2018 2018-10-05 14.7946
+## 3 2018 2018-10-04 14.7287
+## 4 2018 2018-10-03 14.3426
+## 5 2018 2018-10-02 14.3202
+## 6 2018 2018-10-01 14.1090
+```
+
+```r
+summary(exchange_rates$Value) # summary statistics of Value field
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   11.56   12.03   12.58   12.95   13.70   15.55
 ```
 
 ---
@@ -393,15 +395,16 @@ head(crime_data)
 ## # A tibble: 6 x 12
 ##   category persistent_id date    lat    long street_id street_name context
 ##   &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;  
-## 1 anti-so… ""            2018…  51.5 -0.114  960854    On or near… ""     
-## 2 anti-so… ""            2018…  51.5 -0.0826 961467    On or near… ""     
-## 3 anti-so… ""            2018…  51.5 -0.0826 961467    On or near… ""     
-## 4 anti-so… ""            2018…  51.5 -0.0820 968664    On or near… ""     
-## 5 anti-so… ""            2018…  51.5 -0.101  961239    On or near… ""     
-## 6 anti-so… ""            2018…  51.5 -0.0938 964580    On or near… ""     
+## 1 anti-so… ""            2018…  51.5 -0.0714 964344    On or near… ""     
+## 2 anti-so… ""            2018…  51.5 -0.0991 964444    On or near… ""     
+## 3 anti-so… 7af4e0063af3… 2018…  51.5 -0.0977 587624    On or near… ""     
+## 4 anti-so… ""            2018…  51.5 -0.0706 961395    On or near… ""     
+## 5 anti-so… ""            2018…  51.5 -0.0706 961395    On or near… ""     
+## 6 anti-so… ""            2018…  51.5 -0.0805 961523    On or near… ""     
 ## # ... with 4 more variables: id &lt;chr&gt;, location_type &lt;chr&gt;,
 ## #   location_subtype &lt;chr&gt;, outcome_status &lt;chr&gt;
 ```
+
 
 ---
 
