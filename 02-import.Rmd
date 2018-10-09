@@ -121,7 +121,7 @@ cities
 
 # Web APIs
 
-```{r}
+```{r, Web APIs}
 library(siesta) # for working with REST apis
 
 github <- json_api( "https://api.github.com/" )
