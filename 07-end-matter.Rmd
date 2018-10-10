@@ -51,18 +51,18 @@ class: split-20
 .row[.content[.split-three[
   .column[.content.center[
   ### `r anicon::faa("podcast", animate="float")` [**Not So Standard Deviations**](http://nssdeviations.com/)<br>
-#### Hilary Parker `r anicon::faa("twitter", animate="pulse")`&nbsp; [@hspter](http://twitter.com/hspter)<br>
-#### Roger Peng `r anicon::faa("twitter", animate="pulse")`&nbsp; [@rdpeng](http://twitter.com/rdpeng)<br>
+#### Hilary Parker `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@hspter](http://twitter.com/hspter)<br>
+#### Roger Peng `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@rdpeng](http://twitter.com/rdpeng)<br>
 <br>
 ### `r anicon::faa("podcast", animate="float")` [**Credibly Curious**](https://soundcloud.com/crediblycurious)<br>
-#### Saskia Freytag `r anicon::faa("twitter", animate="pulse")`&nbsp; [@trashystats](http://twitter.com/trashystats)<br>
-#### Nicholas Tierney `r anicon::faa("twitter", animate="pulse")` [@nj_tierney](http://twitter.com/nj_tierney)<br>
+#### Saskia Freytag `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@trashystats](http://twitter.com/trashystats)<br>
+#### Nicholas Tierney `r anicon::faa("twitter", animate="pulse", anitype="hover")` [@nj_tierney](http://twitter.com/nj_tierney)<br>
   ]]
   
   .column[.content.vtop.center[
 ### `r anicon::faa("book", animate="float")` [**R for Data Science**](http://r4ds.had.co.nz/)<br>
-#### Garrett Grolemund `r anicon::faa("twitter", animate="pulse")`&nbsp; [@StatGarrett](http://twitter.com/StatGarrett)<br>
-#### Hadley Wickham `r anicon::faa("twitter", animate="pulse")`&nbsp; [@hadleywickham](hhttp://twitter.com/hadleywickham)
+#### Garrett Grolemund `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@StatGarrett](http://twitter.com/StatGarrett)<br>
+#### Hadley Wickham `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@hadleywickham](hhttp://twitter.com/hadleywickham)
 <br>
 ### `r anicon::faa("globe", animate="float")` [**RStudio Community**](https://community.rstudio.com/)<br>
 A community for all things R and RStudio.
