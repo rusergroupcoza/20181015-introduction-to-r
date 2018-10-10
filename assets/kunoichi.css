@@ -53,8 +53,8 @@
 .remark-slide {
   background-color: var(--main-color4);
   background-image: var(--logo), var(--title-background);
-  background-size:  15%, cover;
-  background-position: left bottom, 100%;
+  background-size:  10%, cover;
+  background-position: 20px 530px, 100%;
   background-repeat: no-repeat;
 }
 
