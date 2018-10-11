@@ -105,6 +105,7 @@ knitr::kable(format = "html")
 
 ```{r, Import Databases}
 library(DBI) # for connecting to databases
+
 con <- dbConnect(
 drv = RMySQL::MySQL(),
 dbname = "shinydemo",
@@ -112,6 +113,7 @@ host = "shiny-demo.csa7qlmguqrf.us-east-1.rds.amazonaws.com",
 username = "guest",
 password = "guest"
 )
+
 dbListTables(con)
 cities <- tbl(con, "City")
 cities
@@ -125,8 +127,11 @@ cities
 library(httr)
 library(jsonlite)
 
-github <- fromJSON("https://api.github.com/users/hadley/orgs")
-names(github)
-github$login
-```
+github_issues <- function(user, repo){
+  url <- paste0("https://api.github.com/repos/", user, "/", repo, "/issues")
+  return(fromJSON(url))
+}
 
+dplyr_github_issues <- github_issues("hadley","dplyr")
+head(dplyr_github_issues)$title
+```
