@@ -29,9 +29,76 @@ knitr::opts_chunk$set(
 options(htmltools.dir.version = FALSE)
 ```
 
-# slide 1
+---
 
+layout: true
+class: split-two 
+
+.column.bg-main1[.content.center[
+.font5[.white[The Tidyverse]]
+{{content}}
+]]
+
+.column[.split-five[
+  .row[.content.vmiddle.center[
+    # simpler *
+  ]]
+  .row[.content.vmiddle.center[
+    # human-readable
+  ]] 
+  .row[.content.vmiddle.center[
+    # faster
+  ]]
+  .row[.content.vmiddle.center[
+    #  more intelligent
+  ]]
+  .row[.content.vmiddle.center[
+    # magrittr's pipe
+  ]]
+]]
+
+???
+Preach the good word of Tidyverse
+Why Tidyverse
 
 ---
 
-# slide 2
+class: hide-row1-col2 hide-row2-col2 hide-row3-col2 hide-row4-col2 hide-row5-col2
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row2-col2 hide-row3-col2 hide-row4-col2 hide-row5-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row3-col2 hide-row4-col2 hide-row5-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row4-col2 hide-row5-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row5-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: 
+count: false
+
+<img src="imgs/hexPipe.jpg" width="80%">
+
