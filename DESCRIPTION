@@ -2,8 +2,8 @@ Package: website
 Type: Package
 Title: Introduction to R
 Version: 0.0.1
-Authors@R: person(given="Gemma", family="Dawson"),
-	person(given="Luis", family="de Sousa")	
+Authors@R: c(person("Gemma", "Dawson", role = "aut"),
+  person("Luis", "de Sousa", role = c("aut", "cre"), email= "luisd@syeop.co.za"))
 Description: This is a dummy travis package.
 Depends: devtools, tidyverse
 LazyData: TRUE

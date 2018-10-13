@@ -113,17 +113,249 @@ background-size: cover
 
 
 
-# slide 1
+
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[What is R?]]
+]]
+
+.row[.content[.split-two[
+.column[.content.vmiddle.center[
+&lt;img src="imgs/R_logo.png" width="80%"&gt;
+]]
+
+.column[.content.vmiddle.center[
+.color-main1[.font4[programming language and environment for statistical computing and graphics]]
+]]
+]]]
+
+???
+open-source
+
+---
+
+layout: false
+class: split-20
+background-image: url(imgs/BatmanVersusSuperman.jpg)
+background-size: cover
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[R versus Python]]
+]]
+
+.row[.content[.split-two[
+.column[.content.vmiddle.center[
+.white[hello]
+]]
+.column[.content.vmiddle.center[
+.white[hello]
+]]
+]]]
+
+???
+Python is great for data science too but scope extends beyond this
+Python better suited to those with a comp sci background
+
+R is better suited to data manipulation, analysis, communication
 
 
 ---
 
-# slide 2
+layout: false
+class: split-20
+background-image: url(imgs/BatmanVersusPresidentBusiness.jpg)
+background-size: cover
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[R versus Excel]]
+]]
+
+.row[.content[.split-two[
+.column[.content.vmiddle.center[
+.white[hello]
+]]
+.column[.content.vmiddle.center[
+.white[hello]
+]]
+]]]
+
+???
+Excel - complex tasks with large volumes of data is not easy!  Room for human error is high
+R - transparent, repoducible analysis
+R - automate &amp; save time
+
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[RStudio]]
+]]
+
+.row[.content[]]
+
+???
+Explain sections
+Integrated with GIT (yay - version control)
+Accessible Cheatsheets
+
+---
+
+layout: true
+class: split-two 
+
+.column.bg-main1[.content.center[
+.font5[.white[The Community]]
+{{content}}
+]]
+
+.column[.split-four[
+  .row[.content.vmiddle.center[
+    # R Users &amp; R ladies
+  ]]
+  .row[.content.vmiddle.center[
+    # Twitter (\#rstats)
+  ]] 
+  .row[.content.vmiddle.center[
+    # Podcasts &amp; Blogs
+  ]]
+  .row[.content.vmiddle.center[
+    #  Stack Overflow
+  ]]
+]]
+
+???
+
+---
+
+class: hide-row1-col2 hide-row2-col2 hide-row3-col2 hide-row4-col2
+
+---
+
+class: hide-row2-col2 hide-row3-col2 hide-row4-col2
+count: false
+
+&lt;img src="imgs/RUsersLogo.png" width="35%"&gt; &lt;br&gt;
+&lt;img src="imgs/hexRladies.png" width="35%"&gt;
+
+---
+
+class: hide-row3-col2 hide-row4-col2
+count: false
+
+&lt;img src="imgs/LittleMissTidyverse.jpg" width="80%"&gt;
+
+---
+
+class: hide-row4-col2
+count: false
+
+&lt;img src="imgs/LittleMissTidyverse.jpg" width="80%"&gt;
+
+---
+
+class: 
+count: false
+
+&lt;img src="imgs/hexPipe.jpg" width="80%"&gt;
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Packages]]
+]]
+
+.row[.content[]]
+
+???
+
+
+---
+
+layout: true
+class: split-two 
+
+.column.bg-main1[.content.center[
+.font5[.white[The Tidyverse]]
+{{content}}
+]]
+
+.column[.split-five[
+  .row[.content.vmiddle.center[
+    # simpler *
+  ]]
+  .row[.content.vmiddle.center[
+    # human-readable
+  ]] 
+  .row[.content.vmiddle.center[
+    # faster
+  ]]
+  .row[.content.vmiddle.center[
+    #  more intelligent
+  ]]
+  .row[.content.vmiddle.center[
+    # magrittr's pipe
+  ]]
+]]
+
+???
+Preach the good word of Tidyverse
+Why Tidyverse
+
+---
+
+class: hide-row1-col2 hide-row2-col2 hide-row3-col2 hide-row4-col2 hide-row5-col2
+
+&lt;img src="imgs/LittleMissTidyverse.jpg" width="80%"&gt;
+
+---
+
+class: hide-row2-col2 hide-row3-col2 hide-row4-col2 hide-row5-col2
+count: false
+
+&lt;img src="imgs/LittleMissTidyverse.jpg" width="80%"&gt;
+
+---
+
+class: hide-row3-col2 hide-row4-col2 hide-row5-col2
+count: false
+
+&lt;img src="imgs/LittleMissTidyverse.jpg" width="80%"&gt;
+
+---
+
+class: hide-row4-col2 hide-row5-col2
+count: false
+
+&lt;img src="imgs/LittleMissTidyverse.jpg" width="80%"&gt;
+
+---
+
+class: hide-row5-col2
+count: false
+
+&lt;img src="imgs/LittleMissTidyverse.jpg" width="80%"&gt;
+
+---
+
+class: 
+count: false
+
+&lt;img src="imgs/hexPipe.jpg" width="80%"&gt;
+
 
 ---
 
 
 
+
+layout: false
 
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
@@ -429,12 +661,12 @@ head(dplyr_github_issues)$title
 ```
 
 ```
-## [1] "Bug on n_distinct"                                                     
-## [2] "Add group_cols() selection helper"                                     
-## [3] "Warn when mutate_all() and transmute_all() are used on grouped tibbles"
-## [4] "Feature request: at function in summarise, mutate, ..."                
-## [5] "Compatibility of patch release with rlang 0.3.0"                       
-## [6] "Feature/3888 rlang lambda"
+## [1] "Document semantics of colwise operations on grouping variables"        
+## [2] "Bug on n_distinct"                                                     
+## [3] "Add group_cols() selection helper"                                     
+## [4] "Warn when mutate_all() and transmute_all() are used on grouped tibbles"
+## [5] "Feature request: at function in summarise, mutate, ..."                
+## [6] "Compatibility of patch release with rlang 0.3.0"
 ```
 
 ---
@@ -453,6 +685,8 @@ head(dplyr_github_issues)$title
 
 
 
+
+layout: false
 
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
@@ -628,6 +862,8 @@ ggplot() + geom_sf(data = geo)
 
 
 
+
+layout: false
 
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
