@@ -372,10 +372,22 @@ background-size: cover
 # Importing Data
 
 R can import data from a diverse set of data sources:
-* Flat files like plain text and delimited data: .txt, .csv, .tsv
-* Data files from proprietary software: MS Excel, SPSS, SAS
-* Directly from Databases: MySQL, MS SQL Server, PostgreSQL
-* Directly from the Web: APIs, JSON, Webscrape HTML
+
+--
+
+- Flat files like plain text and delimited data - .txt, .csv, .tsv
+
+--
+
+- Data files from proprietary software like - Microsoft Excel, SPSS, SAS
+
+--
+
+- Directly from Databases - MySQL, MS SQL Server, PostgreSQL
+
+--
+
+- Directly from the Web - APIs, JSON, HTML
 
 ---
 
@@ -383,12 +395,10 @@ R can import data from a diverse set of data sources:
 
 
 ```r
-library(tidyverse)
+library(tidyverse) #packages for data manipulation, exploration and visualization that share a common design philosophy
 exchange_rates &lt;- read.csv("data/ZAR_per_USD__Exchange_Rate_Detail_2000_to_2018-10.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
-exchange_rates &lt;- exchange_rates %&gt;%
-  filter(as.Date(exchange_rates$Date) &gt;= as.Date('2018-01-01')) # filter for 2018 exchange rates
-# show top and bottom 6 rows of data frame
-head(exchange_rates)
+
+head(exchange_rates,4) # show top 4 rows of data frame
 ```
 
 ```
@@ -397,18 +407,46 @@ head(exchange_rates)
 ## 2 2018-09-28 14.1581
 ## 3 2018-09-27 14.1595
 ## 4 2018-09-26 14.2923
-## 5 2018-09-25 14.4062
-## 6 2018-09-21 14.2430
 ```
 
 ```r
-tail(exchange_rates)
+tail(exchange_rates,4) # show bottom 4 rows of data frame
+```
+
+```
+##            Date  Value
+## 4683 2000-01-07 6.0672
+## 4684 2000-01-06 6.0825
+## 4685 2000-01-05 6.0881
+## 4686 2000-01-04 6.1188
+```
+
+---
+
+# Importing Data - CSV
+
+
+```r
+exchange_rates &lt;- exchange_rates %&gt;%
+  filter(as.Date(exchange_rates$Date) &gt;= as.Date('2018-01-01')) # filter for 2018 exchange rates
+
+head(exchange_rates,4)
+```
+
+```
+##         Date   Value
+## 1 2018-10-01 14.1090
+## 2 2018-09-28 14.1581
+## 3 2018-09-27 14.1595
+## 4 2018-09-26 14.2923
+```
+
+```r
+tail(exchange_rates,4)
 ```
 
 ```
 ##           Date   Value
-## 183 2018-01-09 12.4230
-## 184 2018-01-08 12.3946
 ## 185 2018-01-05 12.3477
 ## 186 2018-01-04 12.3018
 ## 187 2018-01-03 12.3954
@@ -417,7 +455,7 @@ tail(exchange_rates)
 
 ---
 
-# Importing Data - Multiple Excel Sheets to 1 Data Frame
+# Importing Data - Multiple Excel Sheets
 
 
 ```r
@@ -430,36 +468,39 @@ combined_data &lt;- excel_sheets(path) %&gt;%
       mutate(year = as.numeric(.x))
   }) %&gt;% 
   select(country, year, everything())
-# show top and bottom 6 rows of data frame
-head(combined_data)
+```
+
+---
+
+# Importing Data - Multiple Excel Sheets to 1 Data Frame
+
+
+```r
+head(combined_data,4)
 ```
 
 ```
-## # A tibble: 6 x 5
+## # A tibble: 4 x 5
 ##   country      year gdpPercap lifeExp      pop
 ##   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 Afghanistan  2007      975.    43.8 31889923
 ## 2 Albania      2007     5937.    76.4  3600523
 ## 3 Algeria      2007     6223.    72.3 33333216
 ## 4 Angola       2007     4797.    42.7 12420476
-## 5 Argentina    2007    12779.    75.3 40301927
-## 6 Australia    2007    34435.    81.2 20434176
 ```
 
 ```r
-tail(combined_data)
+tail(combined_data,4)
 ```
 
 ```
-## # A tibble: 6 x 5
-##   country             year gdpPercap lifeExp      pop
-##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 Venezuela           1952     7690.    55.1  5439568
-## 2 Vietnam             1952      605.    40.4 26246839
-## 3 West Bank and Gaza  1952     1516.    43.2  1030585
-## 4 Yemen, Rep.         1952      782.    32.5  4963829
-## 5 Zambia              1952     1147.    42.0  2672000
-## 6 Zimbabwe            1952      407.    48.5  3080907
+## # A tibble: 4 x 5
+##   country             year gdpPercap lifeExp     pop
+##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 West Bank and Gaza  1952     1516.    43.2 1030585
+## 2 Yemen, Rep.         1952      782.    32.5 4963829
+## 3 Zambia              1952     1147.    42.0 2672000
+## 4 Zimbabwe            1952      407.    48.5 3080907
 ```
 
 ---
@@ -518,6 +559,11 @@ head(survey_data)
 ## #   Q25A_16 &lt;dbl+lbl&gt;, Q25A_95 &lt;dbl+lbl&gt;, …
 ```
 
+---
+
+# Importing Data - SPSS
+
+
 ```r
 # convert spss label codes into labels
 labelled_survey_data &lt;- as_factor(survey_data)
@@ -561,39 +607,25 @@ head(labelled_survey_data)
 ## #   Q25A_15 &lt;fct&gt;, Q25A_16 &lt;fct&gt;, Q25A_95 &lt;fct&gt;, …
 ```
 
+---
+
+# Importing Data - SPSS
+
+
 ```r
 labelled_survey_data %&gt;% 
 count(fQ1bGender, dAge) %&gt;% 
-spread(fQ1bGender, n) %&gt;% 
-knitr::kable(format = "html")
+spread(fQ1bGender, n)
 ```
 
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; dAge &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Male &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Female &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 16-34 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 510 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 596 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 35-54 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 664 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 612 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 55+ &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 362 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 480 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+```
+## # A tibble: 3 x 3
+##   dAge   Male Female
+##   &lt;fct&gt; &lt;int&gt;  &lt;int&gt;
+## 1 16-34   510    596
+## 2 35-54   664    612
+## 3 55+     362    480
+```
 
 ---
 
@@ -617,6 +649,11 @@ dbListTables(con)
 ```
 ## [1] "City"            "Country"         "CountryLanguage"
 ```
+
+---
+
+# Importing Data - Databases
+
 
 ```r
 cities &lt;- tbl(con, "City")
@@ -642,31 +679,31 @@ cities
 ## # ... with more rows
 ```
 
+
 ---
 
 # Importing Data - Web APIs
 
 
 ```r
-library(httr)
-library(jsonlite)
+library(jsonlite) #JSON parser and generator
 
 github_issues &lt;- function(user, repo){
   url &lt;- paste0("https://api.github.com/repos/", user, "/", repo, "/issues")
   return(fromJSON(url))
 }
-
 dplyr_github_issues &lt;- github_issues("hadley","dplyr")
-head(dplyr_github_issues)$title
+
+head(dplyr_github_issues$title)
 ```
 
 ```
-## [1] "Document `.data` and `!!` in manip verbs"                      
-## [2] "Document semantics of mutate() and filter() on grouped tibbles"
-## [3] "Review quasiquotation examples"                                
-## [4] "Document semantics of colwise operations on grouping variables"
-## [5] "Bug on n_distinct"                                             
-## [6] "Add group_cols() selection helper"
+## [1] "Group_by for columns with dates as column name"                
+## [2] "Document `.data` and `!!` in manip verbs"                      
+## [3] "Document semantics of mutate() and filter() on grouped tibbles"
+## [4] "Review quasiquotation examples"                                
+## [5] "Document semantics of colwise operations on grouping variables"
+## [6] "Bug on n_distinct"
 ```
 
 ---
