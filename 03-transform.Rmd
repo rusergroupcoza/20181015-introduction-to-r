@@ -30,3 +30,156 @@ knitr::opts_chunk$set(
 options(htmltools.dir.version = FALSE)
 ```
 
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Tidy & Transform]]]
+.column[
+]
+
+
+---
+
+# First, we tidy
+- import NobelPrizes
+- look at data
+
+---
+
+layout: false
+class: split-20
+
+.row[.content.vmiddle.center[
+.color-main1[.font4[First, we tidy]]
+]]
+
+.row[.content.left[
+```{r}
+  library(tidyverse)
+  NobelPrizes <- read_rds(path = "data/NobelPrizes.rds")
+  glimpse(NobelPrizes)
+```
+]]
+
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row[.content.vmiddle.center[
+.color-main1[.font4[First, we tidy]]
+]]
+
+.row[.content.left[
+```{r echo=FALSE}
+  NobelPrizes$physics[3]
+```
+]
+.content.center[
+<img src="imgs/1903Physics.PNG" width="80%">
+]]
+
+
+???
+
+---
+
+layout: true
+class: split-20
+
+.row[.content.vmiddle.center[
+.color-main1[.font4[First, we tidy]]
+]]
+
+.row[.split-two[
+.column[.content.vmiddle.center[
+<img src="imgs/WideLong.png" width="100%">
+]]
+.column[.content.vmiddle.center[
+<img src="imgs/WideLong.gif" width="80%">
+]]
+]]
+
+
+???
+
+---
+
+class: hide-row2-col2
+
+---
+
+class: 
+count: false
+
+---
+
+layout: false
+class: split-20
+
+.row[.content.vmiddle.center[
+.color-main1[.font4[Let's do that!]]
+]]
+
+.row[.content.left[
+```{r}
+  NobelPrizes_tidy <- NobelPrizes %>% 
+                        gather(key = category, value = winner, -year)
+  tail(NobelPrizes_tidy)
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row[.content.vmiddle.center[
+.color-main1[.font4[Let's do that!]]
+]]
+
+.row[.content.left[
+```{r}
+  NobelPrizes_tidy <- NobelPrizes %>% 
+                        gather(key = category, value = winners, -year) %>% 
+                        sep
+  tail(NobelPrizes_tidy)
+```
+]]
+
+???
+
+---
+
+# Transform
+- left join tidied Prize data with Nobel Laureate data
+
+---
+
+# Group & Summarise
+### Maybe African born instead of gender?
+1. group_by(Africa) & summarise(count=n())
+2. group_by(category, Africa) & summarise(count=n())
+
+---
+
+# Filter & Select
+
+1. filter(gender == "Female") & Select(cat %in% STEM)
+2. group_by(Africa) & summarise(count=n())
+
+---
+
+# 
+
+---
+
+
