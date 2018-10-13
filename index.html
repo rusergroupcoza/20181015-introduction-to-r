@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 
 # Introduction to R
 ### Gemma Dawson and Luis de Sousa
-### 2018/10/01 (updated: 2018-10-10)
+### 2018/10/01 (updated: 2018-10-13)
 
 ---
 
@@ -25,9 +25,15 @@ class: center, middle, inverse, title-slide
 
 
 
-# Introductions
-Experience with R / Python / Excel
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
 
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Welcome &amp; Housekeeping]]]
+.column[
+]
 ---
 
 class: split-70 hide-slide-number
@@ -77,6 +83,18 @@ background-size: cover
 ### .white[<span>&lt;i class="fab  fa-twitter faa-float animated "&gt;&lt;/i&gt;</span>  @luis_de_sousa]
 ### .white[<span>&lt;i class="fas  fa-laptop faa-float animated "&gt;&lt;/i&gt;</span>  growninconsultation.com]
 ]]
+
+---
+
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Who are you?]]]
+.column[
+]
 
 ---
 
@@ -352,6 +370,7 @@ knitr::kable(format = "html")
 
 ```r
 library(DBI) # for connecting to databases
+
 con &lt;- dbConnect(
 drv = RMySQL::MySQL(),
 dbname = "shinydemo",
@@ -359,6 +378,7 @@ host = "shiny-demo.csa7qlmguqrf.us-east-1.rds.amazonaws.com",
 username = "guest",
 password = "guest"
 )
+
 dbListTables(con)
 ```
 
@@ -399,28 +419,23 @@ cities
 library(httr)
 library(jsonlite)
 
-github &lt;- fromJSON("https://api.github.com/users/hadley/orgs")
-names(github)
+github_issues &lt;- function(user, repo){
+  url &lt;- paste0("https://api.github.com/repos/", user, "/", repo, "/issues")
+  return(fromJSON(url))
+}
+
+dplyr_github_issues &lt;- github_issues("hadley","dplyr")
+head(dplyr_github_issues)$title
 ```
 
 ```
-##  [1] "login"              "id"                 "node_id"           
-##  [4] "url"                "repos_url"          "events_url"        
-##  [7] "hooks_url"          "issues_url"         "members_url"       
-## [10] "public_members_url" "avatar_url"         "description"
+## [1] "Bug on n_distinct"                                                     
+## [2] "Add group_cols() selection helper"                                     
+## [3] "Warn when mutate_all() and transmute_all() are used on grouped tibbles"
+## [4] "Feature request: at function in summarise, mutate, ..."                
+## [5] "Compatibility of patch release with rlang 0.3.0"                       
+## [6] "Feature/3888 rlang lambda"
 ```
-
-```r
-github$login
-```
-
-```
-##  [1] "ggobi"             "rstudio"           "rstats"           
-##  [4] "ropensci"          "rjournal"          "r-dbi"            
-##  [7] "RConsortium"       "tidyverse"         "r-lib"            
-## [10] "rstudio-education"
-```
-
 
 ---
 
