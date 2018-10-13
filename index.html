@@ -679,7 +679,6 @@ cities
 ## # ... with more rows
 ```
 
-
 ---
 
 # Importing Data - Web APIs
@@ -724,7 +723,6 @@ head(dplyr_github_issues$title)
 
 
 layout: false
-
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
 background-size: cover
@@ -737,99 +735,331 @@ background-size: cover
 
 ---
 
-# Data Visualisation
+layout: false
+class: split-20
 
-![dataviz](imgs/data-viz.jpg) 
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Data Visualisation]]
+]]
+
+.row[.content[.split-two[
+.column[.content.vmiddle[
+&lt;img src="imgs/data-viz.jpg" width="70%"&gt;
+]]
 
 ---
+
+layout: false
 
 # ggplot2
 
-* Combine your data wrangling and chart making into one single process no more pasting data from excel into powerpoint to make or change a chart!
-* Makes it easy to quickly iterate over different ways of mapping your data to shapes, space and colour
-* Programming a chart with code forces you to think about what you are doing and why
-* Allows you to create completley unique charts by adding several different 'layers' of data
-* Not constrained by the chart types available in other software packages
-* Produce publication quality graphics just like...
+- Combine your data wrangling and chart making into one single process no more pasting data from excel into powerpoint to make or change a chart!
+
+--
+
+- Makes it easy to quickly iterate over different ways of mapping your data to shapes, space and colour
+
+--
+
+- Programming a chart with code forces you to think about what you are doing and why
+
+--
+
+- Allows you to create completley unique charts by adding several different 'layers' of data
+
+--
+
+- Not constrained by the chart types available in other software packages
+
+
+--
+
+- Produce publication quality graphics just like...
 
 ---
 
-# With Info
+class: split-20
 
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
 
 ```r
-library(gapminder)
-library(ggplot2)
-p &lt;- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+*ggplot(iris)
 ```
-
-![](imgs/with-info-1.svg)&lt;!-- --&gt;
+.bottom_abs.width100[
+This example inspired by **Gina Reynolds**, **Garrick Aden-Buie** and **Emi Tanaka**.
+]
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output1-1.png" width="90%" /&gt;
+]]]]]
 
 ---
 
-# With more info
+class: split-20
+count: false
 
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
 
 ```r
-p &lt;- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+ggplot(iris) +
+* aes(Sepal.Length, Sepal.Width)
 ```
-
-![](imgs/with-more-info-1.svg)&lt;!-- --&gt;
+.bottom_abs.width100[
+Note: .font-mono[aes] normally sits within .font-mono[ggplot] function!
+]
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output2-1.png" width="90%" /&gt;
+]]]]]
 
 ---
 
-# With even more info
+class: split-20
+count: false
 
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
 
 ```r
-p &lt;- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+* geom_point()
 ```
-
-![](imgs/with-even-more-info-1.svg)&lt;!-- --&gt;
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output3-1.png" width="90%" /&gt;
+]]]]]
 
 ---
 
-# With different facets
+class: split-20
+count: false
 
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
 
 ```r
-p &lt;- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+* labs(x = "Sepal Length")
 ```
-
-![](imgs/with-different-facets-1.svg)&lt;!-- --&gt;
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output4-1.png" width="90%" /&gt;
+]]]]]
 
 ---
 
-# With trend lines
+class: split-20
+count: false
 
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
 
 ```r
-p &lt;- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+* labs(y = "Sepal Width")
 ```
-
-![](imgs/with-trend-lines-1.svg)&lt;!-- --&gt;
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output5-1.png" width="90%" /&gt;
+]]]]]
 
 ---
 
-# **Import** + Transform + Visualise
+class: split-20
+count: false
 
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+* labs(title="The famous iris data")
+```
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output6-1.png" width="90%" /&gt;
+]]]]]
+
+---
+
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") + 
+* labs(subtitle="Data collected by Anderson, Edgar (1935)")
+```
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output7-1.png" width="90%" /&gt;
+]]]]]
+
+---
+
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") + 
+  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
+* aes(color= Species)
+```
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output8-1.png" width="90%" /&gt;
+]]]]]
+
+
+---
+
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") + 
+  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
+  aes(color= Species) +
+* theme_bw(base_size=16)
+```
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output9-1.png" width="90%" /&gt;
+]]]]]
+
+---
+
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") + 
+  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
+  aes(color= Species) +
+  theme_bw(base_size=16) 
+```
+&lt;br&gt;&lt;br&gt;
+.center[
+## Enjoy making .orange[beautiful],
+## .orange[reproducible] plots!
+]]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output10-1.png" width="90%" /&gt;
+]]]]]
+
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[**Import** + Transform + Visualise]]
+]]
+.row[
+.split-40[
+.column[.content[
 
 ```r
 #https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
-geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+*geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
 head(geo)
 ```
+]]
+.column[.content.center[
+.img90[
 
 ```
 ## Simple feature collection with 6 features and 12 fields
@@ -860,29 +1090,54 @@ head(geo)
 ## 5  0.4232914     7 (EC104) MULTIPOLYGON (((26.59392 -3...
 ## 6  0.1786392     8 (EC105) MULTIPOLYGON (((26.925 -33....
 ```
+]]]]]
 
 ---
 
-# Import + Transform + **Visualise**
+class: split-20
 
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + **Transform** + Visualise]]
+]]
+.row[
+.split-40[
+.column[.content[
 
 ```r
-ggplot() + geom_sf(data = geo)
+#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
+library(sf)
+geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+*#head(geo)
 ```
+]]
+.column[.content.center[
+.img90[
 
-![](imgs/unnamed-chunk-15-1.svg)&lt;!-- --&gt;
-
----
-
-# Import + **Transform** + Visualise
-
-
+]]]]]
 
 ---
 
-# Import + Transform + **Visualise**
+class: split-20
 
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + **Visualise**]]
+]]
+.row[
+.split-40[
+.column[.content[
 
+```r
+#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
+library(sf)
+geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo)
+*ggplot() + geom_sf(data = geo)
+```
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output13-1.png" width="90%" /&gt;
+]]]]]
 
 ---
 

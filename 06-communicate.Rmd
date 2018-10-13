@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
-  dev = "svg",
+  dev = "png",
   cache = TRUE,
   cache.path = ".cache/",
   fig.path = "imgs/",
