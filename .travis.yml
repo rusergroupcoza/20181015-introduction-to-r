@@ -20,6 +20,8 @@ r_packages:
  - sf
  - tidyverse
  - RMySQL
+ - kable
+ - kableExtra
 
 ## A list of packages to install directly from GitHub, using devtools::install_github from the devtools package. The package names here should be of the form user/repo
 r_github_packages:
