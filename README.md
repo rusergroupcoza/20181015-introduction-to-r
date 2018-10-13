@@ -18,3 +18,6 @@ https://rusergroupcoza.github.io/20181015-introduction-to-r/
 * devtools::install_github("hadley/babynames")
 * devtools::install_github("jennybc/gapminder")
 * install.packages("sf") but for those with Ubuntu, you may have trouble but all can be easily resolved by following these [instructions](https://github.com/datacarpentry/r-raster-vector-geospatial/issues/138)
+
+# References
+* Thank you to Garrick Aden-Boo-Eee [twitter: @grrrck] for the amazing data tidying pics & gif https://github.com/gadenbuie/tidyexplain#tidy-data
