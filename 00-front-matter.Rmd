@@ -29,9 +29,15 @@ knitr::opts_chunk$set(
 options(htmltools.dir.version = FALSE)
 ```
 
-# Introductions
-Experience with R / Python / Excel
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
 
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Welcome & Housekeeping]]]
+.column[
+]
 ---
 
 class: split-70 hide-slide-number
@@ -81,6 +87,18 @@ background-size: cover
 ### .white[`r anicon::faa("twitter", animate="float")`  @luis_de_sousa]
 ### .white[`r anicon::faa("laptop", animate="float")`  growninconsultation.com]
 ]]
+
+---
+
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Who are you?]]]
+.column[
+]
 
 ---
 
