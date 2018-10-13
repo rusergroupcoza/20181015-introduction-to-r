@@ -29,9 +29,239 @@ knitr::opts_chunk$set(
 options(htmltools.dir.version = FALSE)
 ```
 
-# slide 1
+
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[What is R?]]
+]]
+
+.row[.content[.split-two[
+.column[.content.vmiddle.center[
+<img src="imgs/R_logo.png" width="80%">
+]]
+
+.column[.content.vmiddle.center[
+.color-main1[.font4[programming language and environment for statistical computing and graphics]]
+]]
+]]]
+
+???
+open-source
+
+---
+
+layout: false
+class: split-20
+background-image: url(imgs/BatmanVersusSuperman.jpg)
+background-size: cover
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[R versus Python]]
+]]
+
+.row[.content[.split-two[
+.column[.content.vmiddle.center[
+.white[hello]
+]]
+.column[.content.vmiddle.center[
+.white[hello]
+]]
+]]]
+
+???
+Python is great for data science too but scope extends beyond this
+Python better suited to those with a comp sci background
+
+R is better suited to data manipulation, analysis, communication
 
 
 ---
 
-# slide 2
+layout: false
+class: split-20
+background-image: url(imgs/BatmanVersusPresidentBusiness.jpg)
+background-size: cover
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[R versus Excel]]
+]]
+
+.row[.content[.split-two[
+.column[.content.vmiddle.center[
+.white[hello]
+]]
+.column[.content.vmiddle.center[
+.white[hello]
+]]
+]]]
+
+???
+Excel - complex tasks with large volumes of data is not easy!  Room for human error is high
+R - transparent, repoducible analysis
+R - automate & save time
+
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[RStudio]]
+]]
+
+.row[.content[]]
+
+???
+Explain sections
+Integrated with GIT (yay - version control)
+Accessible Cheatsheets
+
+---
+
+layout: true
+class: split-two 
+
+.column.bg-main1[.content.center[
+.font5[.white[The Community]]
+{{content}}
+]]
+
+.column[.split-four[
+  .row[.content.vmiddle.center[
+    # R Users & R ladies
+  ]]
+  .row[.content.vmiddle.center[
+    # Twitter (\#rstats)
+  ]] 
+  .row[.content.vmiddle.center[
+    # Podcasts & Blogs
+  ]]
+  .row[.content.vmiddle.center[
+    #  Stack Overflow
+  ]]
+]]
+
+???
+
+---
+
+class: hide-row1-col2 hide-row2-col2 hide-row3-col2 hide-row4-col2
+
+---
+
+class: hide-row2-col2 hide-row3-col2 hide-row4-col2
+count: false
+
+<img src="imgs/RUsersLogo.png" width="35%"> <br>
+<img src="imgs/hexRladies.png" width="35%">
+
+---
+
+class: hide-row3-col2 hide-row4-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row4-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: 
+count: false
+
+<img src="imgs/hexPipe.jpg" width="80%">
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Packages]]
+]]
+
+.row[.content[]]
+
+???
+
+
+---
+
+layout: true
+class: split-two 
+
+.column.bg-main1[.content.center[
+.font5[.white[The Tidyverse]]
+{{content}}
+]]
+
+.column[.split-five[
+  .row[.content.vmiddle.center[
+    # simpler *
+  ]]
+  .row[.content.vmiddle.center[
+    # human-readable
+  ]] 
+  .row[.content.vmiddle.center[
+    # faster
+  ]]
+  .row[.content.vmiddle.center[
+    #  more intelligent
+  ]]
+  .row[.content.vmiddle.center[
+    # magrittr's pipe
+  ]]
+]]
+
+???
+Preach the good word of Tidyverse
+Why Tidyverse
+
+---
+
+class: hide-row1-col2 hide-row2-col2 hide-row3-col2 hide-row4-col2 hide-row5-col2
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row2-col2 hide-row3-col2 hide-row4-col2 hide-row5-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row3-col2 hide-row4-col2 hide-row5-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row4-col2 hide-row5-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: hide-row5-col2
+count: false
+
+<img src="imgs/LittleMissTidyverse.jpg" width="80%">
+
+---
+
+class: 
+count: false
+
+<img src="imgs/hexPipe.jpg" width="80%">
+
