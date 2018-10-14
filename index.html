@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 
 # Introduction to R
 ### Gemma Dawson and Luis de Sousa
-### 2018/10/01 (updated: 2018-10-13)
+### 2018/10/01 (updated: 2018-10-14)
 
 ---
 
@@ -164,7 +164,7 @@ R is better suited to data manipulation, analysis, communication
 
 layout: false
 class: split-20
-background-image: url(imgs/BatmanVPresidentBusiness.png)
+background-image: url(imgs/BatmanVPresidentBusiness.jpg)
 background-size: cover
 
 .row.bg-main1[.content.vmiddle.center[
@@ -375,19 +375,11 @@ background-size: cover
 
 R can import data from a diverse set of data sources:
 
---
-
 - Flat files like plain text and delimited data - .txt, .csv, .tsv
-
---
 
 - Data files from proprietary software like - Microsoft Excel, SPSS, SAS
 
---
-
 - Directly from Databases - MySQL, MS SQL Server, PostgreSQL
-
---
 
 - Directly from the Web - APIs, JSON, HTML
 
@@ -457,7 +449,7 @@ tail(exchange_rates,4)
 
 ---
 
-# Importing Data - Multiple Excel Sheets
+# Importing Data - Multiple Excel Workbooks
 
 
 ```r
@@ -474,7 +466,7 @@ combined_data &lt;- excel_sheets(path) %&gt;%
 
 ---
 
-# Importing Data - Multiple Excel Sheets to 1 Data Frame
+# Importing Data - Multiple Excel Workbooks
 
 
 ```r
@@ -704,7 +696,7 @@ head(dplyr_github_issues$title)
 ## [3] "Document semantics of mutate() and filter() on grouped tibbles"
 ## [4] "Review quasiquotation examples"                                
 ## [5] "Document semantics of colwise operations on grouping variables"
-## [6] "Bug on n_distinct"
+## [6] "Add group_cols() selection helper"
 ```
 
 ---

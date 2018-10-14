@@ -47,19 +47,11 @@ background-size: cover
 
 R can import data from a diverse set of data sources:
 
---
-
 - Flat files like plain text and delimited data - .txt, .csv, .tsv
-
---
 
 - Data files from proprietary software like - Microsoft Excel, SPSS, SAS
 
---
-
 - Directly from Databases - MySQL, MS SQL Server, PostgreSQL
-
---
 
 - Directly from the Web - APIs, JSON, HTML
 
@@ -89,7 +81,7 @@ tail(exchange_rates,4)
 
 ---
 
-# Importing Data - Multiple Excel Sheets
+# Importing Data - Multiple Excel Workbooks
 
 ```{r import-excel-1}
 library(readxl) # for reading excel files
@@ -105,7 +97,7 @@ combined_data <- excel_sheets(path) %>%
 
 ---
 
-# Importing Data - Multiple Excel Sheets to 1 Data Frame
+# Importing Data - Multiple Excel Workbooks
 
 ```{r import-excel-2}
 head(combined_data,4)
