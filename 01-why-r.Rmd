@@ -80,7 +80,7 @@ R is better suited to data manipulation, analysis, communication
 
 layout: false
 class: split-20
-background-image: url(imgs/BatmanVPresidentBusiness.png)
+background-image: url(imgs/BatmanVPresidentBusiness.jpg)
 background-size: cover
 
 .row.bg-main1[.content.vmiddle.center[
