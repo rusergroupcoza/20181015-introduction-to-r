@@ -42,48 +42,67 @@ background-size: cover
 ]
 
 ---
+
 layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data]]
+]]
 
-# Importing Data
-
+.row[.content[
+.color-main1[.font2[
 R can import data from a diverse set of data sources:
-
-- Flat files like plain text and delimited data - .txt, .csv, .tsv
-
-- Data files from proprietary software like - Microsoft Excel, SPSS, SAS
-
-- Directly from Databases - MySQL, MS SQL Server, PostgreSQL
-
-- Directly from the Web - APIs, JSON, HTML
+* Flat files like plain text and delimited data - .txt, .csv, .tsv
+* Data files from proprietary software like - Microsoft Excel, SPSS, SAS
+* Directly from Databases - MySQL, MS SQL Server, PostgreSQL
+* Directly from the Web - APIs, JSON, HTML]]
+]]
 
 ---
 
-# Importing Data - CSV
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - CSV]]
+]]
 
+.row[.content[
 ```{r import-csv-1}
 library(tidyverse) #packages for data manipulation, exploration and visualization that share a common design philosophy
 exchange_rates <- read.csv("data/ZAR_per_USD__Exchange_Rate_Detail_2000_to_2018-10.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
 
-head(exchange_rates,4) # show top 4 rows of data frame
-tail(exchange_rates,4) # show bottom 4 rows of data frame
+head(exchange_rates,3) # show top 3 rows of data frame
+tail(exchange_rates,3) # show bottom 3 rows of data frame
 ```
+]]
 
 ---
 
-# Importing Data - CSV
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - CSV]]
+]]
 
+.row[.content[
 ```{r import-csv-2}
 exchange_rates <- exchange_rates %>%
   filter(as.Date(exchange_rates$Date) >= as.Date('2018-01-01')) # filter for 2018 exchange rates
 
-head(exchange_rates,4)
-tail(exchange_rates,4)
+head(exchange_rates,3)
+tail(exchange_rates,3)
 ```
+]]
 
 ---
 
-# Importing Data - Multiple Excel Workbooks
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Excel Workbooks]]
+]]
 
+.row[.content[
 ```{r import-excel-1}
 library(readxl) # for reading excel files
 path <- "data/gapminder_messy.xlsx"
@@ -95,50 +114,79 @@ combined_data <- excel_sheets(path) %>%
   }) %>% 
   select(country, year, everything())
 ```
+]]
 
 ---
 
-# Importing Data - Multiple Excel Workbooks
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Excel Workbooks]]
+]]
 
+.row[.content[
 ```{r import-excel-2}
-head(combined_data,4)
-tail(combined_data,4)
+head(combined_data,3)
+tail(combined_data,3)
 ```
-
+]]
 ---
 
-# Importing Data - SPSS
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - SPSS]]
+]]
 
+.row[.content[
 ```{r import-spss-1}
 library(haven) # for reading SPSS, SAS, STATA files
 survey_data <- read_sav("data/sample_spss_data.sav")
 head(survey_data)
 ```
+]]
 
 ---
 
-# Importing Data - SPSS
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - SPSS]]
+]]
 
+.row[.content[
 ```{r import-spss-2}
 # convert spss label codes into labels
 labelled_survey_data <- as_factor(survey_data)
 head(labelled_survey_data)
 ```
+]]
 
 ---
 
-# Importing Data - SPSS
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - SPSS]]
+]]
 
+.row[.content[
 ```{r import-spss-3}
 labelled_survey_data %>% 
 count(fQ1bGender, dAge) %>% 
 spread(fQ1bGender, n)
 ```
+]]
 
 ---
 
-# Importing Data - Databases
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Databases]]
+]]
 
+.row[.content[
 ```{r import-databases-1}
 library(DBI) # for connecting to databases
 
@@ -152,21 +200,33 @@ password = "guest"
 
 dbListTables(con)
 ```
+]]
 
 ---
 
-# Importing Data - Databases
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Databases]]
+]]
 
+.row[.content[
 ```{r import-databases-2}
 
 cities <- tbl(con, "City")
 cities
 ```
+]]
 
 ---
 
-# Importing Data - Web APIs
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Web APIs]]
+]]
 
+.row[.content[
 ```{r web-apis}
 library(jsonlite) #JSON parser and generator
 
@@ -178,3 +238,4 @@ dplyr_github_issues <- github_issues("hadley","dplyr")
 
 head(dplyr_github_issues$title)
 ```
+]]
