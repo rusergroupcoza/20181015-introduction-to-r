@@ -45,12 +45,12 @@ background-size: cover
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Wait, what do you mean tidy?]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
 ]]
 
-.row.bg-main1[.content.vmiddle.center[
-.white[.font4[Happy families are all alike; <br> every unhappy family is unhappy in its own way]
+.row[.content.vmiddle.center[
+.color-main1[.font4[Happy families are all alike; <br> every unhappy family is unhappy in its own way]
 <br><br><br><br> .right[.font3[Leo Tolstoy]]]
 ]]
 
@@ -62,8 +62,8 @@ class: split-20
 layout: true
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Wait, what do you mean tidy?]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
 ]]
 
 .row[.split-two[
@@ -112,8 +112,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Wait, what do you mean tidy?]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
 ]]
 
 .row[.split-two[
@@ -139,8 +139,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Wait, what do you mean tidy?]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
 ]]
 
 .row[.split-two[
@@ -165,8 +165,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Wait, what do you mean tidy?]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
 ]]
 
 .row[.split-two[
@@ -190,8 +190,8 @@ count: false
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Billboard Top 100 from 2000]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Billboard Top 100 from 2000]
 ]]
 
 .row[.content.left[
@@ -212,8 +212,8 @@ class: split-20
 layout: true
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[So, how do we tidy our data?]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[So, how do we tidy our data?]
 ]]
 
 .row[.split-two[
@@ -242,8 +242,8 @@ count: false
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Okay, let's try it out!]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Okay, let's try it out!]
 ]]
 
 .row[.content.left[
@@ -261,8 +261,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Okay, let's try it out!]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Okay, let's try it out!]
 ]]
 
 .row[.content.left[
@@ -281,8 +281,8 @@ count: false
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Awesome, let's do it!]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Awesome, let's do it!]
 ]]
 
 .row[.content.left[
@@ -300,8 +300,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Awesome, let's do it!]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Awesome, let's do it!]
 ]]
 
 .row[.content.left[
@@ -319,8 +319,8 @@ count: false
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Arrange]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Arrange]
 ]]
 
 .row[.content.left[
@@ -338,8 +338,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Arrange]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Arrange]
 ]]
 
 .row[.content.left[
@@ -357,8 +357,8 @@ count: false
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Mutate]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Mutate]
 ]]
 
 .row[.content.left[
@@ -376,8 +376,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Mutate]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Mutate]
 ]]
 
 .row[.content.left[
@@ -395,8 +395,8 @@ count: false
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Filter]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Filter]
 ]]
 
 .row[.content.left[
@@ -415,8 +415,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Filter]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Filter]
 ]]
 
 .row[.content.left[
@@ -435,8 +435,8 @@ count: false
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Select]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Select]
 ]]
 
 .row[.content.left[
@@ -454,8 +454,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Select]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Select]
 ]]
 
 .row[.content.left[
@@ -474,8 +474,8 @@ count: false
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Summarise]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Summarise]
 ]]
 
 .row[.content.left[
@@ -492,8 +492,8 @@ class: split-20
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform - Group By & Summarise]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Group By & Summarise]
 ]]
 
 .row[.content.left[
@@ -511,8 +511,8 @@ class: split-20
 layout: false
 class: split-20
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
 ]]
 
 .row[.content.left[
@@ -529,8 +529,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
 ]]
 
 .row[.content.left[
@@ -548,8 +548,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
 ]]
 
 .row[.content.left[
@@ -568,8 +568,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
 ]]
 
 .row[.content.left[
@@ -589,8 +589,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
 ]]
 
 .row[.content.left[
@@ -611,8 +611,8 @@ layout: false
 class: split-20
 count: false
 
-.row[.content.vmiddle.center[
-.color-main1[.font4[Transform]]
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
 ]]
 
 .row[.content.left[
