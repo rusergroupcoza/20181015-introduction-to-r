@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
-  dev = "svg",
+  dev = "png",
   cache = TRUE,
   cache.path = ".cache/",
   fig.path = "imgs/",
@@ -29,6 +29,7 @@ knitr::opts_chunk$set(
 options(htmltools.dir.version = FALSE)
 ```
 
+layout: false
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
 background-size: cover
@@ -40,6 +41,7 @@ background-size: cover
 ]
 ---
 
+layout: false
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
 background-size: cover
@@ -90,6 +92,7 @@ background-size: cover
 
 ---
 
+layout: false
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
 background-size: cover
@@ -102,13 +105,37 @@ background-size: cover
 
 ---
 
-# Table of Contents
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Table of Contents]]
+]]
 
-* Why R? - G
-* Import - L
-* Transform - G
-* Visualise - L
-* Model - G
-* Communicate - L
-* Questions
-* Resources
+.row[.content[.split-two[
+
+.column[.content.vmiddle.center[
+.color-main1[.font2[
+* Why R?
+* Import
+* Transform
+* Visualise
+* Model
+* Communicate
+* Questions & Resources]]
+]]
+.column[.content.vmiddle.center[
+<img src="imgs/tidydata.jpg" width="80%">
+]]
+]]]
+
+???
+| Section   | Presenter | Time Allocation |
+|-----------|-----------|-----------------|
+| Why R? | Gemma  | 15 mins |
+| Import | Luis  | 15 mins |
+| Transform | Gemma | 15 mins |
+| Visualise | Luis | 15 mins |
+| Model | Gemma | 15 mins |
+| Communicate | Luis | 15 mins |
+| Questions & Resources | Gemma and Luis | 15 mins |
+| Total | | 105 minuites|
