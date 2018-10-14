@@ -57,6 +57,9 @@ class: split-20
 ### `r anicon::faa("podcast", animate="float")` [**Credibly Curious**](https://soundcloud.com/crediblycurious)<br>
 #### Saskia Freytag `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@trashystats](http://twitter.com/trashystats)<br>
 #### Nicholas Tierney `r anicon::faa("twitter", animate="pulse", anitype="hover")` [@nj_tierney](http://twitter.com/nj_tierney)<br>
+<br>
+### `r anicon::faa("podcast", animate="float")` [**DataFramed**](https://www.datacamp.com/community/podcast)<br>
+#### Hugo Bowne-Anderson `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@hugobowne](http://twitter.com/hugobowne)<br>
   ]]
   
   .column[.content.vtop.center[

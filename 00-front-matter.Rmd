@@ -110,4 +110,5 @@ background-size: cover
 * Visualise - L
 * Model - G
 * Communicate - L
-* Questions ?
+* Questions
+* Resources
