@@ -20,7 +20,7 @@ output:
 knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
-  dev = "svg",
+  dev = "png",
   cache = TRUE,
   cache.path = ".cache/",
   fig.path = "imgs/",
@@ -363,6 +363,7 @@ class: split-20
 
 .row[.content.left[
 ```{r}
+  library(lubridate)
   tidy_billboard_pop <- tidy_billboard %>% 
                             mutate(month.entered = month(tidy_billboard$date.entered, label = T))  #<<
 ```
