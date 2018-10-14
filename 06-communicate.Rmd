@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
-  dev = "svg",
+  dev = "png",
   cache = TRUE,
   cache.path = ".cache/",
   fig.path = "imgs/",
@@ -28,6 +28,8 @@ knitr::opts_chunk$set(
 )
 options(htmltools.dir.version = FALSE)
 ```
+
+layout: false
 
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")

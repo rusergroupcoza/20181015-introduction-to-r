@@ -18,8 +18,8 @@ output:
 ```{r visualise-setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE,
-  warning = FALSE,
-  dev = "svg",
+  warning = TRUE,
+  dev = "png",
   cache = TRUE,
   cache.path = ".cache/",
   fig.path = "imgs/",
@@ -27,8 +27,11 @@ knitr::opts_chunk$set(
   fig.height = 5
 )
 options(htmltools.dir.version = FALSE)
+library(ggplot2)
+library(sf)
 ```
 
+layout: false
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
 background-size: cover
@@ -41,124 +44,377 @@ background-size: cover
 
 ---
 
-# Data Visualisation
+layout: false
+class: split-20
 
-![dataviz](imgs/data-viz.jpg) 
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Data Visualisation]]
+]]
+
+.row[.content[.split-two[
+.column[.content.vmiddle[
+<img src="imgs/data-viz.jpg" width="70%">
+]]
 
 ---
+
+layout: false
 
 # ggplot2
 
-* Combine your data wrangling and chart making into one single process no more pasting data from excel into powerpoint to make or change a chart!
-* Makes it easy to quickly iterate over different ways of mapping your data to shapes, space and colour
-* Programming a chart with code forces you to think about what you are doing and why
-* Allows you to create completley unique charts by adding several different 'layers' of data
-* Not constrained by the chart types available in other software packages
-* Produce publication quality graphics just like...
+- Combine your data wrangling and chart making into one single process no more pasting data from excel into powerpoint to make or change a chart!
+
+--
+
+- Makes it easy to quickly iterate over different ways of mapping your data to shapes, space and colour
+
+--
+
+- Programming a chart with code forces you to think about what you are doing and why
+
+--
+
+- Allows you to create completley unique charts by adding several different 'layers' of data
+
+--
+
+- Not constrained by the chart types available in other software packages
+
+
+--
+
+- Produce publication quality graphics just like...
 
 ---
 
-# With Info
+class: split-20
 
-```{r, results='hide'}
-library(gapminder)
-library(ggplot2)
-p <- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot1, eval=FALSE}
+ggplot(iris) #<<
 ```
-
-```{r with-info, echo=FALSE, fig.width = 6, fig.height = 7}
-p
+.bottom_abs.width100[
+This example inspired by **Gina Reynolds**, **Garrick Aden-Buie** and **Emi Tanaka**.
+]
+]]
+.column[.content.center[
+.img90[
+```{r output1, ref.label="plot1", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
 ```
+]]]]]
 
 ---
 
-# With more info
+class: split-20
+count: false
 
-```{r, results='hide'}
-p <- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot2, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) #<<
 ```
-
-```{r with-more-info, echo=FALSE, fig.width = 6, fig.height = 7}
-p
+.bottom_abs.width100[
+Note: .font-mono[aes] normally sits within .font-mono[ggplot] function!
+]
+]]
+.column[.content.center[
+.img90[
+```{r output2, ref.label="plot2", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
 ```
+]]]]]
 
 ---
 
-# With even more info
+class: split-20
+count: false
 
-```{r, results='hide'}
-p <- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot3, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() #<<
 ```
-
-```{r with-even-more-info, echo=FALSE, fig.width = 6, fig.height = 7}
-p
+]]
+.column[.content.center[
+.img90[
+```{r output3, ref.label="plot3", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T, cache=T}
 ```
+]]]]]
 
 ---
 
-# With different facets
+class: split-20
+count: false
 
-```{r, results='hide'}
-p <- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot4, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") #<<
 ```
-
-```{r with-different-facets, echo=FALSE, fig.width = 6, fig.height = 7}
-p
+]]
+.column[.content.center[
+.img90[
+```{r output4, ref.label="plot4", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
 ```
+]]]]]
 
 ---
 
-# With trend lines
+class: split-20
+count: false
 
-```{r, results='hide'}
-p <- ggplot(gapminder) +
-  geom_point(aes(x = continent, y = lifeExp,
-                 label = continent))
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot5, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") #<<
 ```
-
-```{r with-trend-lines, echo=FALSE, fig.width = 6, fig.height = 7}
-p
+]]
+.column[.content.center[
+.img90[
+```{r output5, ref.label="plot5", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
 ```
+]]]]]
 
 ---
 
-# **Import** + Transform + Visualise
+class: split-20
+count: false
 
-```{r}
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot6, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") #<<
+```
+]]
+.column[.content.center[
+.img90[
+```{r output6, ref.label="plot6", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+---
+
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot7, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") + 
+  labs(subtitle="Data collected by Anderson, Edgar (1935)") #<<
+```
+]]
+.column[.content.center[
+.img90[
+```{r output7, ref.label="plot7", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+---
+
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot8, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") + 
+  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
+  aes(color= Species) #<<
+```
+]]
+.column[.content.center[
+.img90[
+```{r output8, ref.label="plot8", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+
+---
+
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot9, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") + 
+  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
+  aes(color= Species) +
+  theme_bw(base_size=16) #<<
+```
+]]
+.column[.content.center[
+.img90[
+```{r output9, ref.label="plot9", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+---
+
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot10, eval=FALSE}
+ggplot(iris) +
+  aes(Sepal.Length, Sepal.Width) +
+  geom_point() +
+  labs(x = "Sepal Length") +
+  labs(y = "Sepal Width") +
+  labs(title="The famous iris data") + 
+  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
+  aes(color= Species) +
+  theme_bw(base_size=16) 
+```
+<br><br>
+.center[
+## Enjoy making .orange[beautiful],
+## .orange[reproducible] plots!
+]]]
+.column[.content.center[
+.img90[
+```{r output10, ref.label="plot10", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[**Import** + Transform + Visualise]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot11, eval=FALSE}
+#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
+library(sf)
+geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE) #<<
+head(geo)
+```
+]]
+.column[.content.center[
+.img90[
+```{r output11, ref.label="plot11", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + **Transform** + Visualise]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot12, eval=FALSE}
 #https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
 geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
-head(geo)
+#head(geo) #<<
 ```
+]]
+.column[.content.center[
+.img90[
+```{r output12, ref.label="plot12", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
 
 ---
 
-# Import + Transform + **Visualise**
+class: split-20
 
-```{r}
-ggplot() + geom_sf(data = geo)
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + **Visualise**]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot13, eval=FALSE}
+#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
+library(sf)
+geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo)
+ggplot() + geom_sf(data = geo) #<<
 ```
-
----
-
-# Import + **Transform** + Visualise
-
-```{r}
-
+]]
+.column[.content.center[
+.img90[
+```{r output13, ref.label="plot13", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
 ```
-
----
-
-# Import + Transform + **Visualise**
-
-```{r}
-
-```
+]]]]]

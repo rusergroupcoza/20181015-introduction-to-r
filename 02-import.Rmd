@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
-  dev = "svg",
+  dev = "png",
   cache = TRUE,
   cache.path = ".cache/",
   fig.path = "imgs/",
@@ -28,6 +28,8 @@ knitr::opts_chunk$set(
 )
 options(htmltools.dir.version = FALSE)
 ```
+
+layout: false
 
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
@@ -45,30 +47,44 @@ layout: false
 # Importing Data
 
 R can import data from a diverse set of data sources:
-* Flat files like plain text and delimited data: .txt, .csv, .tsv
-* Data files from proprietary software: MS Excel, SPSS, SAS
-* Directly from Databases: MySQL, MS SQL Server, PostgreSQL
-* Directly from the Web: APIs, JSON, Webscrape HTML
+
+- Flat files like plain text and delimited data - .txt, .csv, .tsv
+
+- Data files from proprietary software like - Microsoft Excel, SPSS, SAS
+
+- Directly from Databases - MySQL, MS SQL Server, PostgreSQL
+
+- Directly from the Web - APIs, JSON, HTML
 
 ---
 
 # Importing Data - CSV
 
-```{r Import CSV}
-library(tidyverse)
+```{r import-csv-1}
+library(tidyverse) #packages for data manipulation, exploration and visualization that share a common design philosophy
 exchange_rates <- read.csv("data/ZAR_per_USD__Exchange_Rate_Detail_2000_to_2018-10.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
-exchange_rates <- exchange_rates %>%
-  filter(as.Date(exchange_rates$Date) >= as.Date('2018-01-01')) # filter for 2018 exchange rates
-# show top and bottom 6 rows of data frame
-head(exchange_rates)
-tail(exchange_rates)
+
+head(exchange_rates,4) # show top 4 rows of data frame
+tail(exchange_rates,4) # show bottom 4 rows of data frame
 ```
 
 ---
 
-# Importing Data - Multiple Excel Sheets to 1 Data Frame
+# Importing Data - CSV
 
-```{r Import Excel}
+```{r import-csv-2}
+exchange_rates <- exchange_rates %>%
+  filter(as.Date(exchange_rates$Date) >= as.Date('2018-01-01')) # filter for 2018 exchange rates
+
+head(exchange_rates,4)
+tail(exchange_rates,4)
+```
+
+---
+
+# Importing Data - Multiple Excel Workbooks
+
+```{r import-excel-1}
 library(readxl) # for reading excel files
 path <- "data/gapminder_messy.xlsx"
 combined_data <- excel_sheets(path) %>% 
@@ -78,33 +94,52 @@ combined_data <- excel_sheets(path) %>%
       mutate(year = as.numeric(.x))
   }) %>% 
   select(country, year, everything())
-# show top and bottom 6 rows of data frame
-head(combined_data)
-tail(combined_data)
+```
+
+---
+
+# Importing Data - Multiple Excel Workbooks
+
+```{r import-excel-2}
+head(combined_data,4)
+tail(combined_data,4)
 ```
 
 ---
 
 # Importing Data - SPSS
 
-```{r, Import SPSS}
+```{r import-spss-1}
 library(haven) # for reading SPSS, SAS, STATA files
 survey_data <- read_sav("data/sample_spss_data.sav")
 head(survey_data)
+```
+
+---
+
+# Importing Data - SPSS
+
+```{r import-spss-2}
 # convert spss label codes into labels
 labelled_survey_data <- as_factor(survey_data)
 head(labelled_survey_data)
+```
+
+---
+
+# Importing Data - SPSS
+
+```{r import-spss-3}
 labelled_survey_data %>% 
 count(fQ1bGender, dAge) %>% 
-spread(fQ1bGender, n) %>% 
-knitr::kable(format = "html")
+spread(fQ1bGender, n)
 ```
 
 ---
 
 # Importing Data - Databases
 
-```{r, Import Databases}
+```{r import-databases-1}
 library(DBI) # for connecting to databases
 
 con <- dbConnect(
@@ -116,6 +151,14 @@ password = "guest"
 )
 
 dbListTables(con)
+```
+
+---
+
+# Importing Data - Databases
+
+```{r import-databases-2}
+
 cities <- tbl(con, "City")
 cities
 ```
@@ -124,15 +167,14 @@ cities
 
 # Importing Data - Web APIs
 
-```{r, Web APIs}
-library(httr)
-library(jsonlite)
+```{r web-apis}
+library(jsonlite) #JSON parser and generator
 
 github_issues <- function(user, repo){
   url <- paste0("https://api.github.com/repos/", user, "/", repo, "/issues")
   return(fromJSON(url))
 }
-
 dplyr_github_issues <- github_issues("hadley","dplyr")
-head(dplyr_github_issues)$title
+
+head(dplyr_github_issues$title)
 ```
