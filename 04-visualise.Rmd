@@ -28,6 +28,7 @@ knitr::opts_chunk$set(
 )
 options(htmltools.dir.version = FALSE)
 library(ggplot2)
+library(gapminder)
 library(sf)
 ```
 
@@ -59,44 +60,34 @@ class: split-20
 ---
 
 layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[ggplot2]]
+]]
 
-# ggplot2
-
-- Combine your data wrangling and chart making into one single process no more pasting data from excel into powerpoint to make or change a chart!
-
---
-
-- Makes it easy to quickly iterate over different ways of mapping your data to shapes, space and colour
-
---
-
-- Programming a chart with code forces you to think about what you are doing and why
-
---
-
-- Allows you to create completley unique charts by adding several different 'layers' of data
-
---
-
-- Not constrained by the chart types available in other software packages
-
-
---
-
-- Produce publication quality graphics just like...
+.row[.content[
+.color-main1[.font2[
+* Combine your data wrangling and chart making into one single process no more pasting data from excel into powerpoint to make or change a chart!
+* Makes it easy to quickly iterate over different ways of mapping your data to shapes, space and colour
+* Programming a chart with code forces you to think about what you are doing and why
+* Allows you to create completley unique charts by adding several different 'layers' of data
+* Not constrained by the chart types available in other software packages
+* Produce publication quality graphics just like...
+]]
+]]
 
 ---
 
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot1, eval=FALSE}
-ggplot(iris) #<<
+ggplot(gapminder) #<<
 ```
 .bottom_abs.width100[
 This example inspired by **Gina Reynolds**, **Garrick Aden-Buie** and **Emi Tanaka**.
@@ -114,14 +105,14 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot2, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) #<<
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) #<<
 ```
 .bottom_abs.width100[
 Note: .font-mono[aes] normally sits within .font-mono[ggplot] function!
@@ -139,14 +130,14 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot3, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() #<<
 ```
 ]]
@@ -162,16 +153,16 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot4, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") #<<
+  scale_x_log10() #<<
 ```
 ]]
 .column[.content.center[
@@ -186,17 +177,17 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot5, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") #<<
+  scale_x_log10() +
+  labs(x = "GDP per capita") #<<
 ```
 ]]
 .column[.content.center[
@@ -211,18 +202,18 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot6, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") #<<
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") #<<
 ```
 ]]
 .column[.content.center[
@@ -237,19 +228,19 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot7, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") + 
-  labs(subtitle="Data collected by Anderson, Edgar (1935)") #<<
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") #<<
 ```
 ]]
 .column[.content.center[
@@ -264,20 +255,20 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot8, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") + 
-  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
-  aes(color= Species) #<<
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") + 
+  labs(subtitle="Data collected from http://www.gapminder.org/data/") #<<
 ```
 ]]
 .column[.content.center[
@@ -293,21 +284,21 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot9, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") + 
-  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
-  aes(color= Species) +
-  theme_bw(base_size=16) #<<
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") + 
+  labs(subtitle="Data collected from http://www.gapminder.org/data/") +
+  aes(color = continent) #<<
 ```
 ]]
 .column[.content.center[
@@ -322,30 +313,60 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot10, eval=FALSE}
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") + 
-  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
-  aes(color= Species) +
-  theme_bw(base_size=16) 
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") + 
+  labs(subtitle="Data collected from http://www.gapminder.org/data/") +
+  aes(color = continent) +
+  theme_bw(base_size=16) #<<
 ```
-<br><br>
-.center[
-## Enjoy making .orange[beautiful],
-## .orange[reproducible] plots!
-]]]
+]]
 .column[.content.center[
 .img90[
 ```{r output10, ref.label="plot10", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+---
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot2]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot11, eval=FALSE}
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
+  geom_point() +
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") + 
+  labs(subtitle="Data collected from http://www.gapminder.org/data/") +
+  aes(color = continent) +
+  theme_bw(base_size=16)
+```
+<br>
+.center[
+## Book recommendation
+## .blue[Factfulness] by .blue[Hans Rosling]
+]]]
+.column[.content.center[
+.img90[
+```{r output11, ref.label="plot11", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
 ```
 ]]]]]
 
@@ -359,34 +380,11 @@ class: split-20
 .row[
 .split-40[
 .column[.content[
-```{r plot11, eval=FALSE}
+```{r plot12, eval=FALSE}
 #https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
 geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE) #<<
 head(geo)
-```
-]]
-.column[.content.center[
-.img90[
-```{r output11, ref.label="plot11", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
-```
-]]]]]
-
----
-
-class: split-20
-
-.row.bg-main1[.content.vmiddle.center[
- .white[.font5[Import + **Transform** + Visualise]]
-]]
-.row[
-.split-40[
-.column[.content[
-```{r plot12, eval=FALSE}
-#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
-library(sf)
-geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
-#head(geo) #<<
 ```
 ]]
 .column[.content.center[
@@ -400,12 +398,35 @@ geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[Import + Transform + **Visualise**]]
+ .white[.font5[Import + **Transform** + Visualise]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot13, eval=FALSE}
+#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
+library(sf)
+geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo) #<<
+```
+]]
+.column[.content.center[
+.img90[
+```{r output13, ref.label="plot13", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + **Visualise**]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot14, eval=FALSE}
 #https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
 geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
@@ -415,6 +436,6 @@ ggplot() + geom_sf(data = geo) #<<
 ]]
 .column[.content.center[
 .img90[
-```{r output13, ref.label="plot13", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```{r output14, ref.label="plot14", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
 ```
 ]]]]]

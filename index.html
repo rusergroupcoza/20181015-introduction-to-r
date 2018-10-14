@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 
 # Introduction to R
 ### Gemma Dawson and Luis de Sousa
-### 2018/10/01 (updated: 2018-10-14)
+### 2018/10/15 (updated: 2018-10-14)
 
 ---
 
@@ -25,6 +25,7 @@ class: center, middle, inverse, title-slide
 
 
 
+layout: false
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
 background-size: cover
@@ -36,6 +37,7 @@ background-size: cover
 ]
 ---
 
+layout: false
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
 background-size: cover
@@ -86,6 +88,7 @@ background-size: cover
 
 ---
 
+layout: false
 class: split-70 hide-slide-number
 background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
 background-size: cover
@@ -98,19 +101,42 @@ background-size: cover
 
 ---
 
-# Table of Contents
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Table of Contents]]
+]]
 
-* Why R? - G
-* Import - L
-* Transform - G
-* Visualise - L
-* Model - G
-* Communicate - L
-* Questions
-* Resources
+.row[.content[.split-two[
+
+.column[.content.vmiddle.center[
+.color-main1[.font2[
+* Why R?
+* Import
+* Transform
+* Visualise
+* Model
+* Communicate
+* Questions &amp; Resources]]
+]]
+.column[.content.vmiddle.center[
+&lt;img src="imgs/tidydata.jpg" width="80%"&gt;
+]]
+]]]
+
+???
+| Section   | Presenter | Time Allocation |
+|-----------|-----------|-----------------|
+| Why R? | Gemma  | 15 mins |
+| Import | Luis  | 15 mins |
+| Transform | Gemma | 15 mins |
+| Visualise | Luis | 15 mins |
+| Model | Gemma | 15 mins |
+| Communicate | Luis | 15 mins |
+| Questions &amp; Resources | Gemma and Luis | 15 mins |
+| Total | | 105 minuites|
 
 ---
-
 
 
 
@@ -353,6 +379,7 @@ count: false
 &lt;img src="imgs/magrittr.png" width="60%"&gt;
 
 
+
 ---
 
 
@@ -372,28 +399,36 @@ background-size: cover
 
 ---
 
-# Importing Data
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data]]
+]]
 
+.row[.content[
+.color-main1[.font2[
 R can import data from a diverse set of data sources:
-
-- Flat files like plain text and delimited data - .txt, .csv, .tsv
-
-- Data files from proprietary software like - Microsoft Excel, SPSS, SAS
-
-- Directly from Databases - MySQL, MS SQL Server, PostgreSQL
-
-- Directly from the Web - APIs, JSON, HTML
+* Flat files like plain text and delimited data - .txt, .csv, .tsv
+* Data files from proprietary software like - Microsoft Excel, SPSS, SAS
+* Directly from Databases - MySQL, MS SQL Server, PostgreSQL
+* Directly from the Web - APIs, JSON, HTML]]
+]]
 
 ---
 
-# Importing Data - CSV
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - CSV]]
+]]
 
+.row[.content[
 
 ```r
 library(tidyverse) #packages for data manipulation, exploration and visualization that share a common design philosophy
 exchange_rates &lt;- read.csv("data/ZAR_per_USD__Exchange_Rate_Detail_2000_to_2018-10.csv") # import all ZAR USD exchange rates from 2000 to 2018-10-08
 
-head(exchange_rates,4) # show top 4 rows of data frame
+head(exchange_rates,3) # show top 3 rows of data frame
 ```
 
 ```
@@ -401,31 +436,35 @@ head(exchange_rates,4) # show top 4 rows of data frame
 ## 1 2018-10-01 14.1090
 ## 2 2018-09-28 14.1581
 ## 3 2018-09-27 14.1595
-## 4 2018-09-26 14.2923
 ```
 
 ```r
-tail(exchange_rates,4) # show bottom 4 rows of data frame
+tail(exchange_rates,3) # show bottom 3 rows of data frame
 ```
 
 ```
 ##            Date  Value
-## 4683 2000-01-07 6.0672
 ## 4684 2000-01-06 6.0825
 ## 4685 2000-01-05 6.0881
 ## 4686 2000-01-04 6.1188
 ```
+]]
 
 ---
 
-# Importing Data - CSV
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - CSV]]
+]]
 
+.row[.content[
 
 ```r
 exchange_rates &lt;- exchange_rates %&gt;%
   filter(as.Date(exchange_rates$Date) &gt;= as.Date('2018-01-01')) # filter for 2018 exchange rates
 
-head(exchange_rates,4)
+head(exchange_rates,3)
 ```
 
 ```
@@ -433,25 +472,29 @@ head(exchange_rates,4)
 ## 1 2018-10-01 14.1090
 ## 2 2018-09-28 14.1581
 ## 3 2018-09-27 14.1595
-## 4 2018-09-26 14.2923
 ```
 
 ```r
-tail(exchange_rates,4)
+tail(exchange_rates,3)
 ```
 
 ```
 ##           Date   Value
-## 185 2018-01-05 12.3477
 ## 186 2018-01-04 12.3018
 ## 187 2018-01-03 12.3954
 ## 188 2018-01-02 12.3330
 ```
+]]
 
 ---
 
-# Importing Data - Multiple Excel Workbooks
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Excel Workbooks]]
+]]
 
+.row[.content[
 
 ```r
 library(readxl) # for reading excel files
@@ -464,44 +507,53 @@ combined_data &lt;- excel_sheets(path) %&gt;%
   }) %&gt;% 
   select(country, year, everything())
 ```
+]]
 
 ---
 
-# Importing Data - Multiple Excel Workbooks
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Excel Workbooks]]
+]]
 
+.row[.content[
 
 ```r
-head(combined_data,4)
+head(combined_data,3)
 ```
 
 ```
-## # A tibble: 4 x 5
+## # A tibble: 3 x 5
 ##   country      year gdpPercap lifeExp      pop
 ##   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 Afghanistan  2007      975.    43.8 31889923
 ## 2 Albania      2007     5937.    76.4  3600523
 ## 3 Algeria      2007     6223.    72.3 33333216
-## 4 Angola       2007     4797.    42.7 12420476
 ```
 
 ```r
-tail(combined_data,4)
+tail(combined_data,3)
 ```
 
 ```
-## # A tibble: 4 x 5
-##   country             year gdpPercap lifeExp     pop
-##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1 West Bank and Gaza  1952     1516.    43.2 1030585
-## 2 Yemen, Rep.         1952      782.    32.5 4963829
-## 3 Zambia              1952     1147.    42.0 2672000
-## 4 Zimbabwe            1952      407.    48.5 3080907
+## # A tibble: 3 x 5
+##   country      year gdpPercap lifeExp     pop
+##   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Yemen, Rep.  1952      782.    32.5 4963829
+## 2 Zambia       1952     1147.    42.0 2672000
+## 3 Zimbabwe     1952      407.    48.5 3080907
 ```
-
+]]
 ---
 
-# Importing Data - SPSS
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - SPSS]]
+]]
 
+.row[.content[
 
 ```r
 library(haven) # for reading SPSS, SAS, STATA files
@@ -553,11 +605,17 @@ head(survey_data)
 ## #   Q25A_13 &lt;dbl+lbl&gt;, Q25A_14 &lt;dbl+lbl&gt;, Q25A_15 &lt;dbl+lbl&gt;,
 ## #   Q25A_16 &lt;dbl+lbl&gt;, Q25A_95 &lt;dbl+lbl&gt;, …
 ```
+]]
 
 ---
 
-# Importing Data - SPSS
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - SPSS]]
+]]
 
+.row[.content[
 
 ```r
 # convert spss label codes into labels
@@ -601,11 +659,17 @@ head(labelled_survey_data)
 ## #   Q25A_11 &lt;fct&gt;, Q25A_12 &lt;fct&gt;, Q25A_13 &lt;fct&gt;, Q25A_14 &lt;fct&gt;,
 ## #   Q25A_15 &lt;fct&gt;, Q25A_16 &lt;fct&gt;, Q25A_95 &lt;fct&gt;, …
 ```
+]]
 
 ---
 
-# Importing Data - SPSS
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - SPSS]]
+]]
 
+.row[.content[
 
 ```r
 labelled_survey_data %&gt;% 
@@ -621,11 +685,17 @@ spread(fQ1bGender, n)
 ## 2 35-54   664    612
 ## 3 55+     362    480
 ```
+]]
 
 ---
 
-# Importing Data - Databases
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Databases]]
+]]
 
+.row[.content[
 
 ```r
 library(DBI) # for connecting to databases
@@ -644,11 +714,17 @@ dbListTables(con)
 ```
 ## [1] "City"            "Country"         "CountryLanguage"
 ```
+]]
 
 ---
 
-# Importing Data - Databases
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Databases]]
+]]
 
+.row[.content[
 
 ```r
 cities &lt;- tbl(con, "City")
@@ -673,11 +749,17 @@ cities
 ## 10    10 Tilburg        NLD         Noord-Brabant     193238
 ## # ... with more rows
 ```
+]]
 
 ---
 
-# Importing Data - Web APIs
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Importing Data - Web APIs]]
+]]
 
+.row[.content[
 
 ```r
 library(jsonlite) #JSON parser and generator
@@ -699,17 +781,756 @@ head(dplyr_github_issues$title)
 ## [5] "Document semantics of colwise operations on grouping variables"
 ## [6] "Add group_cols() selection helper"
 ```
+]]
 
 ---
 
 
 
 
-# slide 1
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Tidy &amp; Transform]]]
+.column[
+]
 
 ---
 
-# slide 2
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
+]]
+
+.row[.content.vmiddle.center[
+.color-main1[.font4[Happy families are all alike; &lt;br&gt; every unhappy family is unhappy in its own way]
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; .right[.font3[Leo Tolstoy]]]
+]]
+
+
+???
+
+---
+
+layout: true
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
+]]
+
+.row[.split-two[
+.column[.content.vmiddle.center[
+{{content}}
+]]
+.column[.content.vmiddle.center[
+&lt;img src="imgs/Tidy1.png" width="80%"&gt;
+]]
+]]
+
+???
+
+---
+
+class: hide-row2-col2
+
+---
+
+class: hide-row2-col2
+count:false
+&lt;img src="imgs/Untidy1.png" width="100%"&gt;
+
+---
+
+class: hide-row2-col2
+count:false
+&lt;img src="imgs/Untidy1.png" width="100%"&gt; &lt;br&gt;
+&lt;img src="imgs/Untidy2.png" width="100%"&gt;
+
+---
+
+class: 
+count:false
+&lt;img src="imgs/Untidy1.png" width="100%"&gt; &lt;br&gt;
+&lt;img src="imgs/Untidy2.png" width="100%"&gt;
+
+---
+
+class: hide-row2-col1
+count: false
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
+]]
+
+.row[.split-two[
+.column[.content.vmiddle.left[
+# each variable forms a column 
+&lt;br&gt;
+# .white[each observation forms a row]
+&lt;br&gt;
+# .white[each type of observational unit forms a table]
+&lt;br&gt; 
+]]
+.column[.content.vmiddle.center[
+&lt;img src="imgs/Tidy1.png" width="80%"&gt;
+]]
+]]
+
+???
+
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
+]]
+
+.row[.split-two[
+.column[.content.vmiddle.left[
+# each variable forms a column 
+&lt;br&gt;
+# each observation forms a row 
+&lt;br&gt;
+# .white[each type of observational unit forms a table]
+&lt;br&gt; 
+]]
+.column[.content.vmiddle.center[
+&lt;img src="imgs/Tidy1.png" width="80%"&gt;
+]]
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Wait, what do you mean tidy?]
+]]
+
+.row[.split-two[
+.column[.content.vmiddle.left[
+# each variable forms a column 
+&lt;br&gt;
+# each observation forms a row 
+&lt;br&gt;
+# each type of observational unit forms a table 
+&lt;br&gt; 
+]]
+.column[.content.vmiddle.center[
+&lt;img src="imgs/Tidy1.png" width="80%"&gt;
+]]
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Billboard Top 100 from 2000]
+]]
+
+.row[.content.left[
+
+
+```r
+  head(raw_billboard)
+```
+
+```
+## # A tibble: 6 x 10
+##    year artist   track    time  genre date.entered   wk1   wk2   wk3   wk4
+##   &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;tim&gt; &lt;chr&gt; &lt;date&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1  2000 Destiny… Indepen… 03:38 Rock  2000-09-23      78    63    49    33
+## 2  2000 Santana  Maria, … 04:18 Rock  2000-02-12      15     8     6     5
+## 3  2000 Madonna  Music    03:45 Rock  2000-08-12      41    23    18    14
+## 4  2000 Aguiler… Come On… 03:38 Rock  2000-08-05      57    47    45    29
+## 5  2000 Janet    Doesn't… 04:17 Rock  2000-06-17      59    52    43    30
+## 6  2000 Iglesia… Be With… 03:36 Latin 2000-04-01      63    45    34    23
+```
+]]
+
+
+???
+
+---
+
+layout: true
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[So, how do we tidy our data?]
+]]
+
+.row[.split-two[
+.column[.content.vmiddle.center[
+&lt;img src="imgs/WideLong.png" width="100%"&gt;
+]]
+.column[.content.vmiddle.center[
+&lt;img src="imgs/WideLong.gif" width="80%"&gt;
+]]
+]]
+
+
+???
+
+---
+
+class: hide-row2-col2
+
+---
+
+class: 
+count: false
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Okay, let's try it out!]
+]]
+
+.row[.content.left[
+
+```r
+  library(tidyverse)
+  raw_billboard %&gt;% slice(1)
+```
+
+```
+## # A tibble: 1 x 10
+##    year artist   track    time  genre date.entered   wk1   wk2   wk3   wk4
+##   &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;tim&gt; &lt;chr&gt; &lt;date&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1  2000 Destiny… Indepen… 03:38 Rock  2000-09-23      78    63    49    33
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Okay, let's try it out!]
+]]
+
+.row[.content.left[
+
+```r
+  library(tidyverse)
+  raw_billboard %&gt;% slice(1)
+```
+
+```
+## # A tibble: 1 x 10
+##    year artist   track    time  genre date.entered   wk1   wk2   wk3   wk4
+##   &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;tim&gt; &lt;chr&gt; &lt;date&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1  2000 Destiny… Indepen… 03:38 Rock  2000-09-23      78    63    49    33
+```
+
+```r
+  raw_billboard %&gt;% slice(1) %&gt;% 
+*   gather(key = "week", value = "rank", wk1, wk2, wk3, wk4)
+```
+
+```
+## # A tibble: 4 x 8
+##    year artist       track            time  genre date.entered week   rank
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;tim&gt; &lt;chr&gt; &lt;date&gt;       &lt;chr&gt; &lt;int&gt;
+## 1  2000 Destiny's C… Independent Wom… 03:38 Rock  2000-09-23   wk1      78
+## 2  2000 Destiny's C… Independent Wom… 03:38 Rock  2000-09-23   wk2      63
+## 3  2000 Destiny's C… Independent Wom… 03:38 Rock  2000-09-23   wk3      49
+## 4  2000 Destiny's C… Independent Wom… 03:38 Rock  2000-09-23   wk4      33
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Awesome, let's do it!]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard &lt;- raw_billboard %&gt;% 
+                        gather(key = "week", value = "rank", wk1, wk2, wk3, wk4)
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Awesome, let's do it!]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard &lt;- raw_billboard %&gt;% 
+                        gather(key = "week", value = "rank", wk1, wk2, wk3, wk4)
+  head(tidy_billboard)
+```
+
+```
+## # A tibble: 6 x 8
+##    year artist      track             time  genre date.entered week   rank
+##   &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;             &lt;tim&gt; &lt;chr&gt; &lt;date&gt;       &lt;chr&gt; &lt;int&gt;
+## 1  2000 Destiny's … Independent Wome… 03:38 Rock  2000-09-23   wk1      78
+## 2  2000 Santana     Maria, Maria      04:18 Rock  2000-02-12   wk1      15
+## 3  2000 Madonna     Music             03:45 Rock  2000-08-12   wk1      41
+## 4  2000 Aguilera, … Come On Over Bab… 03:38 Rock  2000-08-05   wk1      57
+## 5  2000 Janet       Doesn't Really M… 04:17 Rock  2000-06-17   wk1      59
+## 6  2000 Iglesias, … Be With You       03:36 Latin 2000-04-01   wk1      63
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Arrange]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard &lt;- tidy_billboard %&gt;% 
+*                       arrange(artist, track)
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Arrange]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard &lt;- tidy_billboard %&gt;% 
+*                       arrange(artist, track)
+  head(tidy_billboard)
+```
+
+```
+## # A tibble: 6 x 8
+##    year artist  track                 time  genre date.entered week   rank
+##   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                 &lt;tim&gt; &lt;chr&gt; &lt;date&gt;       &lt;chr&gt; &lt;int&gt;
+## 1  2000 2 Pac   Baby Don't Cry (Keep… 04:22 Rap   2000-02-26   wk1      87
+## 2  2000 2 Pac   Baby Don't Cry (Keep… 04:22 Rap   2000-02-26   wk2      82
+## 3  2000 2 Pac   Baby Don't Cry (Keep… 04:22 Rap   2000-02-26   wk3      72
+## 4  2000 2 Pac   Baby Don't Cry (Keep… 04:22 Rap   2000-02-26   wk4      77
+## 5  2000 2Ge+her The Hardest Part Of … 03:15 R&amp;B   2000-09-02   wk1      91
+## 6  2000 2Ge+her The Hardest Part Of … 03:15 R&amp;B   2000-09-02   wk2      87
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Mutate]
+]]
+
+.row[.content.left[
+
+```r
+  library(lubridate)
+  tidy_billboard_pop &lt;- tidy_billboard %&gt;% 
+*                           mutate(month.entered = month(tidy_billboard$date.entered, label = T))
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Mutate]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard_pop &lt;- tidy_billboard %&gt;% 
+*                           mutate(month.entered = month(tidy_billboard$date.entered, label = T))
+  head(tidy_billboard_pop)
+```
+
+```
+## # A tibble: 6 x 9
+##    year artist  track   time  genre date.entered week   rank month.entered
+##   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;tim&gt; &lt;chr&gt; &lt;date&gt;       &lt;chr&gt; &lt;int&gt; &lt;ord&gt;        
+## 1  2000 2 Pac   Baby D… 04:22 Rap   2000-02-26   wk1      87 Feb          
+## 2  2000 2 Pac   Baby D… 04:22 Rap   2000-02-26   wk2      82 Feb          
+## 3  2000 2 Pac   Baby D… 04:22 Rap   2000-02-26   wk3      72 Feb          
+## 4  2000 2 Pac   Baby D… 04:22 Rap   2000-02-26   wk4      77 Feb          
+## 5  2000 2Ge+her The Ha… 03:15 R&amp;B   2000-09-02   wk1      91 Sep          
+## 6  2000 2Ge+her The Ha… 03:15 R&amp;B   2000-09-02   wk2      87 Sep
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Filter]
+]]
+
+.row[.content.left[
+
+```r
+  library(lubridate)
+  tidy_billboard_pop &lt;- tidy_billboard %&gt;% 
+*                           filter(genre == "Pop" &amp; month(date.entered) &lt; 7)
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Filter]
+]]
+
+.row[.content.left[
+
+```r
+  library(lubridate)
+  tidy_billboard_pop &lt;- tidy_billboard %&gt;% 
+*                           filter(genre == "Pop" &amp; month(date.entered) &lt; 7)
+  head(tidy_billboard_pop)
+```
+
+```
+## # A tibble: 6 x 8
+##    year artist       track            time  genre date.entered week   rank
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;tim&gt; &lt;chr&gt; &lt;date&gt;       &lt;chr&gt; &lt;int&gt;
+## 1  2000 Anastacia    I'm Outta Love   04:01 Pop   2000-04-01   wk1      92
+## 2  2000 Anastacia    I'm Outta Love   04:01 Pop   2000-04-01   wk2      NA
+## 3  2000 Anastacia    I'm Outta Love   04:01 Pop   2000-04-01   wk3      NA
+## 4  2000 Anastacia    I'm Outta Love   04:01 Pop   2000-04-01   wk4      95
+## 5  2000 Fabian, Lara I Will Love Aga… 03:43 Pop   2000-06-10   wk1      91
+## 6  2000 Fabian, Lara I Will Love Aga… 03:43 Pop   2000-06-10   wk2      80
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Select]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard_pop &lt;- tidy_billboard_pop %&gt;% 
+*                           select(-genre)
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Select]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard_pop &lt;- tidy_billboard_pop %&gt;% 
+*                           select(-genre)
+  head(tidy_billboard_pop)
+```
+
+```
+## # A tibble: 6 x 7
+##    year artist       track             time   date.entered week   rank
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;             &lt;time&gt; &lt;date&gt;       &lt;chr&gt; &lt;int&gt;
+## 1  2000 Anastacia    I'm Outta Love    04:01  2000-04-01   wk1      92
+## 2  2000 Anastacia    I'm Outta Love    04:01  2000-04-01   wk2      NA
+## 3  2000 Anastacia    I'm Outta Love    04:01  2000-04-01   wk3      NA
+## 4  2000 Anastacia    I'm Outta Love    04:01  2000-04-01   wk4      95
+## 5  2000 Fabian, Lara I Will Love Again 03:43  2000-06-10   wk1      91
+## 6  2000 Fabian, Lara I Will Love Again 03:43  2000-06-10   wk2      80
+```
+]]
+
+???
+
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Summarise]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard_pop %&gt;% 
+*   summarise(mean.rank = mean(rank, na.rm = T))
+```
+
+```
+## # A tibble: 1 x 1
+##   mean.rank
+##       &lt;dbl&gt;
+## 1      71.7
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform - Group By &amp; Summarise]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard_pop %&gt;% 
+*     group_by(artist) %&gt;%
+*     summarise(mean.rank = mean(rank, na.rm = T))
+```
+
+```
+## # A tibble: 5 x 2
+##   artist       mean.rank
+##   &lt;chr&gt;            &lt;dbl&gt;
+## 1 Anastacia         93.5
+## 2 Fabian, Lara      76.8
+## 3 Hoku              50.2
+## 4 M2M               89.8
+## 5 Moore, Mandy      59
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard %&gt;% 
+      filter(genre == "Pop" &amp; month(date.entered) &lt; 7)
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard %&gt;% 
+      filter(genre == "Pop" &amp; month(date.entered) &lt; 7) %&gt;% 
+      select(-genre)
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard %&gt;% 
+      filter(genre == "Pop" &amp; month(date.entered) &lt; 7) %&gt;% 
+      select(-genre) %&gt;% 
+      group_by(artist)
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard %&gt;% 
+      filter(genre == "Pop" &amp; month(date.entered) &lt; 7) %&gt;% 
+      select(-genre) %&gt;% 
+      group_by(artist) %&gt;% 
+      summarise(mean.rank = mean(rank, na.rm = T))
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Transform]
+]]
+
+.row[.content.left[
+
+```r
+  tidy_billboard %&gt;% 
+      filter(genre == "Pop" &amp; month(date.entered) &lt; 7) %&gt;% 
+      select(-genre) %&gt;% 
+      group_by(artist) %&gt;% 
+      summarise(mean.rank = mean(rank, na.rm = T))
+```
+
+```
+## # A tibble: 5 x 2
+##   artist       mean.rank
+##   &lt;chr&gt;            &lt;dbl&gt;
+## 1 Anastacia         93.5
+## 2 Fabian, Lara      76.8
+## 3 Hoku              50.2
+## 4 M2M               89.8
+## 5 Moore, Mandy      59
+```
+]]
+
+???
 
 
 ---
@@ -745,45 +1566,35 @@ class: split-20
 ---
 
 layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[ggplot2]]
+]]
 
-# ggplot2
-
-- Combine your data wrangling and chart making into one single process no more pasting data from excel into powerpoint to make or change a chart!
-
---
-
-- Makes it easy to quickly iterate over different ways of mapping your data to shapes, space and colour
-
---
-
-- Programming a chart with code forces you to think about what you are doing and why
-
---
-
-- Allows you to create completley unique charts by adding several different 'layers' of data
-
---
-
-- Not constrained by the chart types available in other software packages
-
-
---
-
-- Produce publication quality graphics just like...
+.row[.content[
+.color-main1[.font2[
+* Combine your data wrangling and chart making into one single process no more pasting data from excel into powerpoint to make or change a chart!
+* Makes it easy to quickly iterate over different ways of mapping your data to shapes, space and colour
+* Programming a chart with code forces you to think about what you are doing and why
+* Allows you to create completley unique charts by adding several different 'layers' of data
+* Not constrained by the chart types available in other software packages
+* Produce publication quality graphics just like...
+]]
+]]
 
 ---
 
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-*ggplot(iris)
+*ggplot(gapminder)
 ```
 .bottom_abs.width100[
 This example inspired by **Gina Reynolds**, **Garrick Aden-Buie** and **Emi Tanaka**.
@@ -800,15 +1611,15 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-* aes(Sepal.Length, Sepal.Width)
+ggplot(gapminder) +
+* aes(x = gdpPercap, y = lifeExp)
 ```
 .bottom_abs.width100[
 Note: .font-mono[aes] normally sits within .font-mono[ggplot] function!
@@ -825,15 +1636,15 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
 * geom_point()
 ```
 ]]
@@ -848,17 +1659,17 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-* labs(x = "Sepal Length")
+* scale_x_log10()
 ```
 ]]
 .column[.content.center[
@@ -872,18 +1683,18 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-* labs(y = "Sepal Width")
+  scale_x_log10() +
+* labs(x = "GDP per capita")
 ```
 ]]
 .column[.content.center[
@@ -897,19 +1708,19 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-* labs(title="The famous iris data")
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+* labs(y = "Life Expectancy")
 ```
 ]]
 .column[.content.center[
@@ -923,20 +1734,20 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") + 
-* labs(subtitle="Data collected by Anderson, Edgar (1935)")
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+* labs(title="How Does Income Relate to Life Expectancy?")
 ```
 ]]
 .column[.content.center[
@@ -950,21 +1761,21 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") + 
-  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
-* aes(color= Species)
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") + 
+* labs(subtitle="Data collected from http://www.gapminder.org/data/")
 ```
 ]]
 .column[.content.center[
@@ -979,22 +1790,22 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") + 
-  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
-  aes(color= Species) +
-* theme_bw(base_size=16)
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") + 
+  labs(subtitle="Data collected from http://www.gapminder.org/data/") +
+* aes(color = continent)
 ```
 ]]
 .column[.content.center[
@@ -1008,31 +1819,61 @@ class: split-20
 count: false
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[ggplot]]
+ .white[.font5[ggplot2]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
   geom_point() +
-  labs(x = "Sepal Length") +
-  labs(y = "Sepal Width") +
-  labs(title="The famous iris data") + 
-  labs(subtitle="Data collected by Anderson, Edgar (1935)") +
-  aes(color= Species) +
-  theme_bw(base_size=16) 
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") + 
+  labs(subtitle="Data collected from http://www.gapminder.org/data/") +
+  aes(color = continent) +
+* theme_bw(base_size=16)
 ```
-&lt;br&gt;&lt;br&gt;
-.center[
-## Enjoy making .orange[beautiful],
-## .orange[reproducible] plots!
-]]]
+]]
 .column[.content.center[
 .img90[
 &lt;img src="imgs/output10-1.png" width="90%" /&gt;
+]]]]]
+
+---
+class: split-20
+count: false
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[ggplot2]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp) +
+  geom_point() +
+  scale_x_log10() +
+  labs(x = "GDP per capita") +
+  labs(y = "Life Expectancy") +
+  labs(title="How Does Income Relate to Life Expectancy?") + 
+  labs(subtitle="Data collected from http://www.gapminder.org/data/") +
+  aes(color = continent) +
+  theme_bw(base_size=16)
+```
+&lt;br&gt;
+.center[
+## Book recommendation
+## .blue[Factfulness] by .blue[Hans Rosling]
+]]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output11-1.png" width="90%" /&gt;
 ]]]]]
 
 ---
@@ -1131,7 +1972,7 @@ geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
 ]]
 .column[.content.center[
 .img90[
-&lt;img src="imgs/output13-1.png" width="90%" /&gt;
+&lt;img src="imgs/output14-1.png" width="90%" /&gt;
 ]]]]]
 
 ---
@@ -1139,11 +1980,597 @@ geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
 
 
 
-# slide 1
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Model]]]
+.column[
+]
 
 ---
 
-# slide 2
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model]
+]]
+
+.row[.content.vmiddle.center[
+.color-main1[.font4[All models are wrong, but some are useful.]
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; .right[.font3[George Box]]]
+]]
+
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.vmiddle.left[
+
+```r
+gapminder %&gt;% ggplot(aes(year, lifeExp, group = country)) + geom_line(alpha = 1/3)
+```
+
+&lt;img src="imgs/model1-1.png" style="display: block; margin: auto;" /&gt;
+]]
+
+???
+# How does life expectancy (lifeExp) change over time (year) for each country (country)?
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content[.split-two[
+.column[.content.left[
+
+```r
+nz &lt;- filter(gapminder, country=="New Zealand")
+nz %&gt;% 
+  ggplot(aes(year, lifeExp)) + 
+  geom_line() + 
+  ggtitle("Full data = ")
+```
+]]
+.column[.content.center[
+![](imgs/modeloutput2-1.png)&lt;!-- --&gt;
+]]
+]]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content[.split-two[
+.column[.content.left[
+
+```r
+library(modelr)
+nz_mod &lt;- lm(lifeExp ~ year, data = nz)
+nz %&gt;% 
+  add_predictions(nz_mod) %&gt;%
+  ggplot(aes(year, pred)) + 
+  geom_line() + 
+  ggtitle("Linear trend + ")
+```
+]]
+.column[.content.center[
+![](imgs/modeloutput3-1.png)&lt;!-- --&gt;
+]]
+]]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content[.split-two[
+.column[.content.left[
+
+```r
+nz %&gt;% 
+  add_residuals(nz_mod) %&gt;% 
+  ggplot(aes(year, resid)) + 
+  geom_hline(yintercept = 0, 
+             colour = "white", 
+             size = 3) + 
+  geom_line() + 
+  ggtitle("Remaining pattern")
+```
+]]
+.column[.content.center[
+![](imgs/modeloutput4-1.png)&lt;!-- --&gt;
+]]
+]]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+by_country &lt;- gapminder %&gt;% 
+                group_by(country, continent) %&gt;% 
+                nest()
+
+head(by_country)
+```
+
+```
+## # A tibble: 6 x 3
+##   country     continent data             
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;           
+## 1 Afghanistan Asia      &lt;tibble [12 × 4]&gt;
+## 2 Albania     Europe    &lt;tibble [12 × 4]&gt;
+## 3 Algeria     Africa    &lt;tibble [12 × 4]&gt;
+## 4 Angola      Africa    &lt;tibble [12 × 4]&gt;
+## 5 Argentina   Americas  &lt;tibble [12 × 4]&gt;
+## 6 Australia   Oceania   &lt;tibble [12 × 4]&gt;
+```
+]]
+
+???
+# Extract out the common code with a function and repeat using a map function from purrr.
+# To do that, we need a new data structure: the nested data frame.
+
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+by_country$data[[1]]
+```
+
+```
+## # A tibble: 12 x 4
+##     year lifeExp      pop gdpPercap
+##    &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1  1952    28.8  8425333      779.
+##  2  1957    30.3  9240934      821.
+##  3  1962    32.0 10267083      853.
+##  4  1967    34.0 11537966      836.
+##  5  1972    36.1 13079460      740.
+##  6  1977    38.4 14880372      786.
+##  7  1982    39.9 12881816      978.
+##  8  1987    40.8 13867957      852.
+##  9  1992    41.7 16317921      649.
+## 10  1997    41.8 22227415      635.
+## 11  2002    42.1 25268405      727.
+## 12  2007    43.8 31889923      975.
+```
+]]
+
+???
+
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+country_model &lt;- function(df) {
+  lm(lifeExp ~ year, data = df)
+}
+
+by_country &lt;- by_country %&gt;% 
+  mutate(model = map(data, country_model))
+head(by_country)
+```
+
+```
+## # A tibble: 6 x 4
+##   country     continent data              model   
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;            &lt;list&gt;  
+## 1 Afghanistan Asia      &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 2 Albania     Europe    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 3 Algeria     Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 4 Angola      Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 5 Argentina   Americas  &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 6 Australia   Oceania   &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+```
+]]
+
+???
+# model-fitting function
+# Create a new variable in the by_country data frame.
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+by_country %&gt;% 
+  filter(continent == "Europe") %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 4
+##   country                continent data              model   
+##   &lt;fct&gt;                  &lt;fct&gt;     &lt;list&gt;            &lt;list&gt;  
+## 1 Albania                Europe    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 2 Austria                Europe    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 3 Belgium                Europe    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 4 Bosnia and Herzegovina Europe    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 5 Bulgaria               Europe    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 6 Croatia                Europe    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+```
+]]
+
+???
+This has a big advantage: because all the related objects are stored together, you don’t need to manually keep them in sync when you filter or arrange. The semantics of the data frame takes care of that for you
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+by_country %&gt;% 
+  arrange(continent, country) %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 4
+##   country      continent data              model   
+##   &lt;fct&gt;        &lt;fct&gt;     &lt;list&gt;            &lt;list&gt;  
+## 1 Algeria      Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 2 Angola       Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 3 Benin        Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 4 Botswana     Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 5 Burkina Faso Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+## 6 Burundi      Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt;
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+by_country &lt;- by_country %&gt;% 
+  mutate(
+    resids = map2(data, model, add_residuals)
+  )
+head(by_country)
+```
+
+```
+## # A tibble: 6 x 5
+##   country     continent data              model    resids           
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;            &lt;list&gt;   &lt;list&gt;           
+## 1 Afghanistan Asia      &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt; &lt;tibble [12 × 5]&gt;
+## 2 Albania     Europe    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt; &lt;tibble [12 × 5]&gt;
+## 3 Algeria     Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt; &lt;tibble [12 × 5]&gt;
+## 4 Angola      Africa    &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt; &lt;tibble [12 × 5]&gt;
+## 5 Argentina   Americas  &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt; &lt;tibble [12 × 5]&gt;
+## 6 Australia   Oceania   &lt;tibble [12 × 4]&gt; &lt;S3: lm&gt; &lt;tibble [12 × 5]&gt;
+```
+]]
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+resids &lt;- unnest(by_country, resids)
+resids
+```
+
+```
+## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp      pop gdpPercap   resid
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779. -1.11  
+##  2 Afghanistan Asia       1957    30.3  9240934      821. -0.952 
+##  3 Afghanistan Asia       1962    32.0 10267083      853. -0.664 
+##  4 Afghanistan Asia       1967    34.0 11537966      836. -0.0172
+##  5 Afghanistan Asia       1972    36.1 13079460      740.  0.674 
+##  6 Afghanistan Asia       1977    38.4 14880372      786.  1.65  
+##  7 Afghanistan Asia       1982    39.9 12881816      978.  1.69  
+##  8 Afghanistan Asia       1987    40.8 13867957      852.  1.28  
+##  9 Afghanistan Asia       1992    41.7 16317921      649.  0.754 
+## 10 Afghanistan Asia       1997    41.8 22227415      635. -0.534 
+## # ... with 1,694 more rows
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content[.split-two[
+.column[.content.left[
+
+```r
+resids %&gt;% 
+  ggplot(aes(year, resid)) +
+    geom_line(aes(group = country), 
+                      alpha = 1 / 3) + 
+    geom_smooth(se = FALSE)
+```
+]]
+.column[.content.center[
+![](imgs/modeloutput12-1.png)&lt;!-- --&gt;
+]]
+]]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content[.split-two[
+.column[.content.left[
+
+```r
+resids %&gt;% 
+  ggplot(aes(year, resid, group = country)) +
+    geom_line(alpha = 1 / 3) + 
+    facet_wrap(~continent)
+```
+]]
+.column[.content.center[
+![](imgs/modeloutput13-1.png)&lt;!-- --&gt;
+]]
+]]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+by_country %&gt;% 
+  mutate(glance = map(model, broom::glance)) %&gt;% 
+  unnest(glance) %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 16
+##   country continent data  model resids r.squared adj.r.squared sigma
+##   &lt;fct&gt;   &lt;fct&gt;     &lt;lis&gt; &lt;lis&gt; &lt;list&gt;     &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
+## 1 Afghan… Asia      &lt;tib… &lt;S3:… &lt;tibb…     0.948         0.942 1.22 
+## 2 Albania Europe    &lt;tib… &lt;S3:… &lt;tibb…     0.911         0.902 1.98 
+## 3 Algeria Africa    &lt;tib… &lt;S3:… &lt;tibb…     0.985         0.984 1.32 
+## 4 Angola  Africa    &lt;tib… &lt;S3:… &lt;tibb…     0.888         0.877 1.41 
+## 5 Argent… Americas  &lt;tib… &lt;S3:… &lt;tibb…     0.996         0.995 0.292
+## 6 Austra… Oceania   &lt;tib… &lt;S3:… &lt;tibb…     0.980         0.978 0.621
+## # ... with 8 more variables: statistic &lt;dbl&gt;, p.value &lt;dbl&gt;, df &lt;int&gt;,
+## #   logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;, df.residual &lt;int&gt;
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+glance &lt;- by_country %&gt;% 
+  mutate(glance = map(model, broom::glance)) %&gt;% 
+  unnest(glance, .drop = TRUE)
+head(glance)
+```
+
+```
+## # A tibble: 6 x 13
+##   country continent r.squared adj.r.squared sigma statistic  p.value    df
+##   &lt;fct&gt;   &lt;fct&gt;         &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+## 1 Afghan… Asia          0.948         0.942 1.22      181.  9.84e- 8     2
+## 2 Albania Europe        0.911         0.902 1.98      102.  1.46e- 6     2
+## 3 Algeria Africa        0.985         0.984 1.32      662.  1.81e-10     2
+## 4 Angola  Africa        0.888         0.877 1.41       79.1 4.59e- 6     2
+## 5 Argent… Americas      0.996         0.995 0.292    2246.  4.22e-13     2
+## 6 Austra… Oceania       0.980         0.978 0.621     481.  8.67e-10     2
+## # ... with 5 more variables: logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;,
+## #   deviance &lt;dbl&gt;, df.residual &lt;int&gt;
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+glance %&gt;% 
+  arrange(r.squared)
+```
+
+```
+## # A tibble: 142 x 13
+##    country continent r.squared adj.r.squared sigma statistic p.value    df
+##    &lt;fct&gt;   &lt;fct&gt;         &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
+##  1 Rwanda  Africa       0.0172      -0.0811   6.56     0.175  0.685      2
+##  2 Botswa… Africa       0.0340      -0.0626   6.11     0.352  0.566      2
+##  3 Zimbab… Africa       0.0562      -0.0381   7.21     0.596  0.458      2
+##  4 Zambia  Africa       0.0598      -0.0342   4.53     0.636  0.444      2
+##  5 Swazil… Africa       0.0682      -0.0250   6.64     0.732  0.412      2
+##  6 Lesotho Africa       0.0849      -0.00666  5.93     0.927  0.358      2
+##  7 Cote d… Africa       0.283        0.212    3.93     3.95   0.0748     2
+##  8 South … Africa       0.312        0.244    4.74     4.54   0.0588     2
+##  9 Uganda  Africa       0.342        0.276    3.19     5.20   0.0457     2
+## 10 Congo,… Africa       0.348        0.283    2.43     5.34   0.0434     2
+## # ... with 132 more rows, and 5 more variables: logLik &lt;dbl&gt;, AIC &lt;dbl&gt;,
+## #   BIC &lt;dbl&gt;, deviance &lt;dbl&gt;, df.residual &lt;int&gt;
+```
+]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content[.split-two[
+.column[.content.left[
+
+```r
+glance %&gt;% 
+  ggplot(aes(continent, r.squared)) + 
+    geom_jitter(width = 0.5)
+```
+]]
+.column[.content.center[
+![](imgs/modeloutput17-1.png)&lt;!-- --&gt;
+]]
+]]]
+
+???
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font4[Model - Life Expectancy]
+]]
+
+.row[.content[.split-two[
+.column[.content.left[
+
+```r
+bad_fit &lt;- filter(glance, r.squared &lt; 0.25)
+
+gapminder %&gt;% 
+  semi_join(bad_fit, by = "country") %&gt;% 
+  ggplot(aes(year, lifeExp, colour = country)) +
+    geom_line()
+```
+]]
+.column[.content.center[
+![](imgs/modeloutput18-1.png)&lt;!-- --&gt;
+]]
+]]]
+
+???
 
 ---
 
@@ -1164,20 +2591,33 @@ background-size: cover
 
 ---
 
-# Communication
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Communication]]
+]]
 
+.row[.content[
+.color-main1[.font2[
 * All your coding is only going to be useful if you can effectively communicate the findings to a broader audience of stakeholders, in formats they are comfortable with.
 * This is where R really excels above other programming languages:
 * rmarkdown is an authoring format that enables the easy creation of dynamic documents, presentations, and reports from R. It combines the core syntax of markdown (an easy to write plain text format) with embedded R code chunks that are run so their output can be included in the final document
 * Shiny makes it possible to build fully interactive web-apps and dashboards that puts the analytical and graphical power of R at the fingertips of your users in elegant, browser-based user interfaces
-
 ![rmarkdown](imgs/rmarkdown.png)
 ![shiny](imgs/shiny.png)
+]]
+]]
 
 ---
 
-# Rmarkdown
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Rmarkdown]]
+]]
 
+.row[.content[
+.color-main1[.font2[
 * Combining narrative and commentary with code in a single document is a very powerful concept. It makes your report fully reproducible. That is, a script you can simply re-run whenever your data or code changes and all data-driven R outputs will update automatically in your report. No more copy &amp; pasting data around various MS Office programs!*
 * The output options enables you to share your analysis in the format your audience is most comfortable with, be it:
 * HTML Report (enables the use of interactive graphics)
@@ -1189,17 +2629,32 @@ background-size: cover
 * Websites - rusergroup.co.za is written in rmarkdown
 * Having your report as an executable R script also allows you to paramaterise some variables and automate the generation of several different reports - one for each subset of a data set, for example.
 * Check out this video for a better illustration of the problem and solution to traditional data reporting methods. https://www.youtube.com/watch?v=s3JldKoA0zw
+]]
+]]
 
 ---
 
-# Example of the code and output of an html rmarkdown report
+layout: false
+class: split-20
+background-image: url(imgs/rmarkdown-report.png)
+background-size: cover
 
-![rmarkdown-report](imgs/rmarkdown-report.png)
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Example of rmarkdown report]]
+]]
+
+.row[.content[]]
 
 ---
 
-# Shiny
+layout: false
+class: split-20
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Shiny]]
+]]
 
+.row[.content[
+.color-main1[.font2[
 * Shiny goes a step further and allows end-users to interact with a live R session through a user-interface, giving them the power of R without any required knowledge of coding.
 * Shiny dashboards are significantly more powerful than expensive off-the-shelf dashboard software that are limited to visualising the data you supply to them with their own charting libraries. Shiny can draw on the vast eco-system of open-source technology, dynamically run any type of R code you want it to, and feed the results back to the end-user.
 * Example Use Case
@@ -1210,10 +2665,21 @@ background-size: cover
 * give them the option of downloading an auto-generated rmarkdown PDF report
 * And there's no limitations on the look and feel of your app. There's lots of great CSS themes to choose from, or if you know some HTML + CSS you can build a complety bespoke user interace interface from the ground-up.
 * Check out some of the shiny apps we've made over on the Culture of Insight portfolio page.
+]]
+]]
 
 ---
 
-![shiny-dashboard](imgs/shiny-dashboard.png)
+layout: false
+class: split-20
+background-image: url(imgs/shiny-dashboard.png)
+background-size: cover
+
+.row.bg-main1[.content.vmiddle.center[
+.white[.font5[Shiny Dashboard]]
+]]
+
+.row[.content[]]
 
 ---
 
@@ -1313,7 +2779,16 @@ layout: false
 
 ---
 
-# End Of File
+layout: false
+class: split-70 hide-slide-number
+background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Thank you! - End of File]]]
+.column[
+]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
