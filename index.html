@@ -90,22 +90,31 @@ background-size: cover
 ---
 
 layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/legendColour.png" width="50%"&gt;
+
+???
+
+---
+
+
+
+layout: false
 class: split-20
 .row.bg-main1[.content.vmiddle.center[
 .white[.font5[Table of Contents]]
 ]]
 
-.row[.content[.split-two[
-
-.column[.content.vmiddle.center[
-.color-main1[.font2[
-* Why R?
-* Import
-* Transform
-* Visualise
-* Model
-* Communicate
-* Questions &amp; Resources]]
+.row[.content[.split-two[.column[.content.center[.color-main1[.font2[
+Why R?&lt;br&gt;&lt;br&gt;
+Import&lt;br&gt;&lt;br&gt;
+Transform&lt;br&gt;&lt;br&gt;
+Visualise&lt;br&gt;&lt;br&gt;
+Model&lt;br&gt;&lt;br&gt;
+Communicate&lt;br&gt;&lt;br&gt;
+Questions &amp; Resources
+]]
 ]]
 .column[.content.vmiddle.center[
 &lt;img src="imgs/tidydata.jpg" width="80%"&gt;
@@ -381,7 +390,9 @@ class: split-20
 .white[.font5[Packages]]
 ]]
 
-.row[.content[]]
+.row[.content.vmiddle.center[
+&lt;img src="imgs/UseRHex.png" width="50%"&gt;
+]]
 
 ???
 
@@ -859,11 +870,11 @@ head(dplyr_github_issues$title)
 
 ```
 ## [1] "first_n() and last_n()"                                        
-## [2] "Revise filter internals to use less Rcpp protection"           
-## [3] "Clearer documentation for grouping behavior with `count`"      
-## [4] "Group_by for columns with dates as column name"                
-## [5] "Document `.data` and `!!` in manip verbs"                      
-## [6] "Document semantics of mutate() and filter() on grouped tibbles"
+## [2] "Clearer documentation for grouping behavior with `count`"      
+## [3] "Group_by for columns with dates as column name"                
+## [4] "Document `.data` and `!!` in manip verbs"                      
+## [5] "Document semantics of mutate() and filter() on grouped tibbles"
+## [6] "Review quasiquotation examples"
 ```
 ]]
 
@@ -2204,7 +2215,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font5[Transform + Visulaise + **Model**]
+.font5[Transform + Visualise + **Model**]
 ]]
 
 .row[.content.vmiddle.center[
@@ -2932,42 +2943,42 @@ class: split-20
 
 .row[.content[.split-three[
   .column[.content.center[
-  ### <span>&lt;i class="fas  fa-podcast faa-float animated "&gt;&lt;/i&gt;</span> [**Not So Standard Deviations**](http://nssdeviations.com/)&lt;br&gt;
+  ### <span>&lt;i class="fas  fa-podcast faa-float animated-hover "&gt;&lt;/i&gt;</span> [**Not So Standard Deviations**](http://nssdeviations.com/)&lt;br&gt;
 #### Hilary Parker <span>&lt;i class="fab  fa-twitter faa-pulse animated-hover "&gt;&lt;/i&gt;</span>&amp;nbsp; [@hspter](http://twitter.com/hspter)&lt;br&gt;
 #### Roger Peng <span>&lt;i class="fab  fa-twitter faa-pulse animated-hover "&gt;&lt;/i&gt;</span>&amp;nbsp; [@rdpeng](http://twitter.com/rdpeng)&lt;br&gt;
 &lt;br&gt;
-### <span>&lt;i class="fas  fa-podcast faa-float animated "&gt;&lt;/i&gt;</span> [**Credibly Curious**](https://soundcloud.com/crediblycurious)&lt;br&gt;
+### <span>&lt;i class="fas  fa-podcast faa-float animated-hover "&gt;&lt;/i&gt;</span> [**Credibly Curious**](https://soundcloud.com/crediblycurious)&lt;br&gt;
 #### Saskia Freytag <span>&lt;i class="fab  fa-twitter faa-pulse animated-hover "&gt;&lt;/i&gt;</span>&amp;nbsp; [@trashystats](http://twitter.com/trashystats)&lt;br&gt;
 #### Nicholas Tierney <span>&lt;i class="fab  fa-twitter faa-pulse animated-hover "&gt;&lt;/i&gt;</span> [@nj_tierney](http://twitter.com/nj_tierney)&lt;br&gt;
 &lt;br&gt;
-### <span>&lt;i class="fas  fa-podcast faa-float animated "&gt;&lt;/i&gt;</span> [**DataFramed**](https://www.datacamp.com/community/podcast)&lt;br&gt;
+### <span>&lt;i class="fas  fa-podcast faa-float animated-hover "&gt;&lt;/i&gt;</span> [**DataFramed**](https://www.datacamp.com/community/podcast)&lt;br&gt;
 #### Hugo Bowne-Anderson <span>&lt;i class="fab  fa-twitter faa-pulse animated-hover "&gt;&lt;/i&gt;</span>&amp;nbsp; [@hugobowne](http://twitter.com/hugobowne)&lt;br&gt;
   ]]
   
   .column[.content.vtop.center[
-### <span>&lt;i class="fas  fa-book faa-float animated "&gt;&lt;/i&gt;</span> [**R for Data Science**](http://r4ds.had.co.nz/)&lt;br&gt;
+### <span>&lt;i class="fas  fa-book faa-float animated-hover "&gt;&lt;/i&gt;</span> [**R for Data Science**](http://r4ds.had.co.nz/)&lt;br&gt;
 #### Garrett Grolemund <span>&lt;i class="fab  fa-twitter faa-pulse animated-hover "&gt;&lt;/i&gt;</span>&amp;nbsp; [@StatGarrett](http://twitter.com/StatGarrett)&lt;br&gt;
 #### Hadley Wickham <span>&lt;i class="fab  fa-twitter faa-pulse animated-hover "&gt;&lt;/i&gt;</span>&amp;nbsp; [@hadleywickham](hhttp://twitter.com/hadleywickham)
 &lt;br&gt;
-### <span>&lt;i class="fas  fa-globe faa-float animated "&gt;&lt;/i&gt;</span> [**RStudio Community**](https://community.rstudio.com/)&lt;br&gt;
+### <span>&lt;i class="fas  fa-globe faa-float animated-hover "&gt;&lt;/i&gt;</span> [**RStudio Community**](https://community.rstudio.com/)&lt;br&gt;
 A community for all things R and RStudio.
 &lt;br&gt;
-### <span>&lt;i class="fas  fa-globe faa-float animated "&gt;&lt;/i&gt;</span> [**Stack Overflow**](https://stackoverflow.com/questions/tagged/r)&lt;br&gt;
+### <span>&lt;i class="fas  fa-globe faa-float animated-hover "&gt;&lt;/i&gt;</span> [**Stack Overflow**](https://stackoverflow.com/questions/tagged/r)&lt;br&gt;
 Community for developers to learn, share their knowledge, and build their careers.
 &lt;br&gt;
 
-### <span>&lt;i class="fas  fa-globe faa-float animated "&gt;&lt;/i&gt;</span> [**R-bloggers**](https://www.r-bloggers.com/)&lt;br&gt;
+### <span>&lt;i class="fas  fa-globe faa-float animated-hover "&gt;&lt;/i&gt;</span> [**R-bloggers**](https://www.r-bloggers.com/)&lt;br&gt;
 The site helps R bloggers and users to connect and follow the “R blogosphere”
   ]]
   
   .column[.content.vtop.center[
-  ### <span>&lt;i class="fas  fa-comments faa-float animated "&gt;&lt;/i&gt;</span> [**RUsers**](https://stackoverflow.com/questions/tagged/r)&lt;br&gt;
+  ### <span>&lt;i class="fas  fa-comments faa-float animated-hover "&gt;&lt;/i&gt;</span> [**RUsers**](https://stackoverflow.com/questions/tagged/r)&lt;br&gt;
 
 <span>&lt;i class="fab  fa-meetup faa-wrench animated-hover "&gt;&lt;/i&gt;</span> [Johannesburg](https://www.meetup.com/Joburg-R-Users-Group/)&lt;br&gt;
 <span>&lt;i class="fab  fa-meetup faa-wrench animated-hover "&gt;&lt;/i&gt;</span> [Cape Town](https://caperuser.wordpress.com/)&lt;br&gt;
 &lt;br&gt;
 
-### <span>&lt;i class="fas  fa-comments faa-float animated "&gt;&lt;/i&gt;</span> [**R-Ladies**](https://www.r-bloggers.com/)&lt;br&gt;
+### <span>&lt;i class="fas  fa-comments faa-float animated-hover "&gt;&lt;/i&gt;</span> [**R-Ladies**](https://www.r-bloggers.com/)&lt;br&gt;
 
 <span>&lt;i class="fab  fa-slack faa-wrench animated-hover "&gt;&lt;/i&gt;</span> [R-Ladies Community Slack Workspace](https://rladies-community-slack.herokuapp.com/)&lt;br&gt;
 <span>&lt;i class="fab  fa-meetup faa-wrench animated-hover "&gt;&lt;/i&gt;</span> [Johannesburg](https://www.meetup.com/rladies-johannesburg/)&lt;br&gt;

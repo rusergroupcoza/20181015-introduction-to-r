@@ -94,22 +94,31 @@ background-size: cover
 ---
 
 layout: false
+class: middle center bg-main1
+
+<img src="imgs/legendColour.png" width="50%">
+
+???
+
+---
+
+
+
+layout: false
 class: split-20
 .row.bg-main1[.content.vmiddle.center[
 .white[.font5[Table of Contents]]
 ]]
 
-.row[.content[.split-two[
-
-.column[.content.vmiddle.center[
-.color-main1[.font2[
-* Why R?
-* Import
-* Transform
-* Visualise
-* Model
-* Communicate
-* Questions & Resources]]
+.row[.content[.split-two[.column[.content.center[.color-main1[.font2[
+Why R?<br><br>
+Import<br><br>
+Transform<br><br>
+Visualise<br><br>
+Model<br><br>
+Communicate<br><br>
+Questions & Resources
+]]
 ]]
 .column[.content.vmiddle.center[
 <img src="imgs/tidydata.jpg" width="80%">
