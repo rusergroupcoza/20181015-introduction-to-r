@@ -357,7 +357,7 @@ ggplot(gapminder) +
 <br>
 .center[
 ## Book recommendation
-## .blue[Factfulness] by .blue[Hans Rosling]
+## .orange[Factfulness] by .orange[Hans Rosling]
 ]]]
 .column[.content.center[
 .img90[
@@ -370,16 +370,17 @@ ggplot(gapminder) +
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[**Import** + Transform + Visualise]]
+ .white[.font5[.orange[Import] + Transform + Visualise]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot12, eval=FALSE}
-#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
-geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE) #<<
-head(geo)
+library(ggplot2)
+library(dplyr)
+geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+head(geo) #<<
 ```
 ]]
 .column[.content.center[
@@ -393,16 +394,22 @@ head(geo)
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[Import + **Transform** + Visualise]]
+ .white[.font5[Import + .orange[Transform] + Visualise]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot13, eval=FALSE}
-#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
+library(ggplot2)
+library(dplyr)
 geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
-#head(geo) #<<
+#head(geo)
+largestMunicipalities <- geo %>%
+  select(AREA, MUNICNAME) %>%
+  arrange(desc(AREA)) %>%
+  slice(1:10)
+largestMunicipalities #<<
 ```
 ]]
 .column[.content.center[
@@ -416,21 +423,125 @@ geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[Import + Transform + **Visualise**]]
+ .white[.font5[Import + Transform + .orange[Visualise]]]
 ]]
 .row[
 .split-40[
 .column[.content[
 ```{r plot14, eval=FALSE}
-#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
+library(ggplot2)
+library(dplyr)
 geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
 #head(geo)
-ggplot() + geom_sf(data = geo) #<<
+largestMunicipalities <- geo %>%
+  select(AREA, MUNICNAME) %>%
+  arrange(desc(AREA)) %>%
+  slice(1:10)
+#largestMunicipalities
+ggplot() +
+  geom_sf(data = geo) #<<
 ```
 ]]
 .column[.content.center[
 .img90[
 ```{r output14, ref.label="plot14", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + .orange[Visualise]]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot15, eval=FALSE}
+library(sf)
+library(ggplot2)
+library(dplyr)
+geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo)
+largestMunicipalities <- geo %>%
+  select(AREA, MUNICNAME) %>%
+  arrange(desc(AREA)) %>%
+  slice(1:10)
+#largestMunicipalities
+ggplot() +
+  geom_sf(data = geo) +
+  geom_sf(data = largestMunicipalities, aes(fill = MUNICNAME)) #<<
+```
+]]
+.column[.content.center[
+.img90[
+```{r output15, ref.label="plot15", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + .orange[Visualise]]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot16, eval=FALSE}
+library(sf)
+library(ggplot2)
+library(dplyr)
+geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo)
+largestMunicipalities <- geo %>%
+  select(AREA, MUNICNAME) %>%
+  arrange(desc(AREA)) %>%
+  slice(1:10)
+#largestMunicipalities
+ggplot() +
+  geom_sf(data = geo) +
+  geom_sf(data = largestMunicipalities, aes(fill = MUNICNAME)) +
+  labs(title= "South Africa's largest municipalities by area") #<<
+```
+]]
+.column[.content.center[
+.img90[
+```{r output16, ref.label="plot16", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
+```
+]]]]]
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + .orange[Visualise]]]
+]]
+.row[
+.split-40[
+.column[.content[
+```{r plot17, eval=FALSE}
+library(sf)
+library(ggplot2)
+library(dplyr)
+geo <- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo)
+largestMunicipalities <- geo %>%
+  select(AREA, MUNICNAME) %>%
+  arrange(desc(AREA)) %>%
+  slice(1:10)
+#largestMunicipalities
+ggplot() +
+  geom_sf(data = geo) +
+  geom_sf(data = largestMunicipalities, aes(fill = MUNICNAME)) +
+  labs(title= "South Africa's largest municipalities by area") +
+  theme_bw(base_size=12) #<<
+```
+]]
+.column[.content.center[
+.img90[
+```{r output17, ref.label="plot17", echo=FALSE, out.width="90%", fig.retina=2, fig.height=6, cache=T}
 ```
 ]]]]]
