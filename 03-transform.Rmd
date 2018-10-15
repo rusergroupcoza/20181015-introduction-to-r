@@ -383,6 +383,7 @@ count: false
 
 .row[.content.left[
 ```{r}
+  library(lubridate)
   tidy_billboard_pop <- tidy_billboard %>% 
                             mutate(month.entered = month(tidy_billboard$date.entered, label = T))  #<<
   head(tidy_billboard_pop)
@@ -402,7 +403,6 @@ class: split-20
 
 .row[.content.left[
 ```{r message=FALSE}
-  library(lubridate)
   tidy_billboard_pop <- tidy_billboard %>% 
                             filter(genre == "Pop" & month(date.entered) < 7)  #<<
 ```
@@ -422,7 +422,6 @@ count: false
 
 .row[.content.left[
 ```{r message=FALSE}
-  library(lubridate)
   tidy_billboard_pop <- tidy_billboard %>% 
                             filter(genre == "Pop" & month(date.entered) < 7)  #<<
   head(tidy_billboard_pop)

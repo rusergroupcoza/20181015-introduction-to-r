@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 
 # Introduction to R
 ### Gemma Dawson and Luis de Sousa
-### 2018/10/15 (updated: 2018-10-14)
+### 2018/10/15 (updated: 2018-10-15)
 
 ---
 
@@ -24,18 +24,6 @@ class: center, middle, inverse, title-slide
 
 
 
-
-layout: false
-class: split-70 hide-slide-number
-background-image: url("imgs/HEAD-Top-data-visualization-tools-for-small-business.png")
-background-size: cover
-
-.column.slide-in-left[
-.sliderbox.vmiddle.shade_main.center[
-.font5[Welcome &amp; Housekeeping]]]
-.column[
-]
----
 
 layout: false
 class: split-70 hide-slide-number
@@ -173,10 +161,10 @@ background-size: cover
 
 .row[.content[.split-two[
 .column[.content.vmiddle.center[
-.white[hello]
+.white[]
 ]]
 .column[.content.vmiddle.center[
-.white[hello]
+.white[]
 ]]
 ]]]
 
@@ -200,10 +188,10 @@ background-size: cover
 
 .row[.content[.split-two[
 .column[.content.vmiddle.center[
-.white[hello]
+.white[]
 ]]
 .column[.content.vmiddle.center[
-.white[hello]
+.white[]
 ]]
 ]]]
 
@@ -216,20 +204,113 @@ R - automate &amp; save time
 ---
 
 layout: false
-class: split-20
+class: middle center bg-main1
 
-.row.bg-main1[.content.vmiddle.center[
-.white[.font5[RStudio]]
-]]
-
-.row[.content.vmiddle.center[
-&lt;img src="imgs/RStudio.png" width="75%"&gt;
-]]
+&lt;img src="imgs/RStudio1.png" width="100%"&gt;
 
 ???
 Explain sections
 Integrated with GIT (yay - version control)
 Accessible Cheatsheets
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio2.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio3.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio4.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio5.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio6.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio7.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio8.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio9.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio10.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio11.png" width="100%"&gt;
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+&lt;img src="imgs/RStudio12.png" width="100%"&gt;
+
+???
 
 ---
 
@@ -405,13 +486,16 @@ class: split-20
 .white[.font5[Importing Data]]
 ]]
 
-.row[.content[
-.color-main1[.font2[
-R can import data from a diverse set of data sources:
-* Flat files like plain text and delimited data - .txt, .csv, .tsv
-* Data files from proprietary software like - Microsoft Excel, SPSS, SAS
-* Directly from Databases - MySQL, MS SQL Server, PostgreSQL
-* Directly from the Web - APIs, JSON, HTML]]
+.row[
+Flat files, Data files, Databases, Web
+.content.vmiddle.center[
+&lt;img src="imgs/readr.png" width="15%"&gt;
+&lt;img src="imgs/readxl.png" width="15%"&gt;
+&lt;img src="imgs/haven.png" width="15%"&gt;
+&lt;br&gt;
+&lt;img src="imgs/googledrive.png" width="15%"&gt;
+&lt;img src="imgs/googlesheets.png" width="15%"&gt;
+&lt;img src="imgs/dbplot.png" width="15%"&gt;
 ]]
 
 ---
@@ -774,12 +858,12 @@ head(dplyr_github_issues$title)
 ```
 
 ```
-## [1] "Group_by for columns with dates as column name"                
-## [2] "Document `.data` and `!!` in manip verbs"                      
-## [3] "Document semantics of mutate() and filter() on grouped tibbles"
-## [4] "Review quasiquotation examples"                                
-## [5] "Document semantics of colwise operations on grouping variables"
-## [6] "Add group_cols() selection helper"
+## [1] "Clearer documentation for grouping behavior with `count`"      
+## [2] "Group_by for columns with dates as column name"                
+## [3] "Document `.data` and `!!` in manip verbs"                      
+## [4] "Document semantics of mutate() and filter() on grouped tibbles"
+## [5] "Review quasiquotation examples"                                
+## [6] "Document semantics of colwise operations on grouping variables"
 ```
 ]]
 
@@ -1210,6 +1294,7 @@ count: false
 .row[.content.left[
 
 ```r
+  library(lubridate)
   tidy_billboard_pop &lt;- tidy_billboard %&gt;% 
 *                           mutate(month.entered = month(tidy_billboard$date.entered, label = T))
   head(tidy_billboard_pop)
@@ -1242,7 +1327,6 @@ class: split-20
 .row[.content.left[
 
 ```r
-  library(lubridate)
   tidy_billboard_pop &lt;- tidy_billboard %&gt;% 
 *                           filter(genre == "Pop" &amp; month(date.entered) &lt; 7)
 ```
@@ -1263,7 +1347,6 @@ count: false
 .row[.content.left[
 
 ```r
-  library(lubridate)
   tidy_billboard_pop &lt;- tidy_billboard %&gt;% 
 *                           filter(genre == "Pop" &amp; month(date.entered) &lt; 7)
   head(tidy_billboard_pop)
@@ -1996,7 +2079,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model]
+.font5[Transform + Visulaise + **Model**]
 ]]
 
 .row[.content.vmiddle.center[
@@ -2013,7 +2096,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Model - Life Expectancy]
 ]]
 
 .row[.content.vmiddle.left[
@@ -2034,7 +2117,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Model - New Zealand]
 ]]
 
 .row[.content[.split-two[
@@ -2042,6 +2125,7 @@ class: split-20
 
 ```r
 nz &lt;- filter(gapminder, country=="New Zealand")
+
 nz %&gt;% 
   ggplot(aes(year, lifeExp)) + 
   geom_line() + 
@@ -2061,7 +2145,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Model - New Zealand]
 ]]
 
 .row[.content[.split-two[
@@ -2069,7 +2153,9 @@ class: split-20
 
 ```r
 library(modelr)
+
 nz_mod &lt;- lm(lifeExp ~ year, data = nz)
+
 nz %&gt;% 
   add_predictions(nz_mod) %&gt;%
   ggplot(aes(year, pred)) + 
@@ -2090,7 +2176,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Model - New Zealand]
 ]]
 
 .row[.content[.split-two[
@@ -2120,7 +2206,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Model - Set Up]
 ]]
 
 .row[.content.left[
@@ -2128,7 +2214,7 @@ class: split-20
 ```r
 by_country &lt;- gapminder %&gt;% 
                 group_by(country, continent) %&gt;% 
-                nest()
+*               nest()
 
 head(by_country)
 ```
@@ -2157,7 +2243,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Data Frame Inception]
 ]]
 
 .row[.content.left[
@@ -2194,7 +2280,29 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Model - Life Expectancy]
+]]
+
+.row[.content.left[
+
+```r
+country_model &lt;- function(df) {
+* lm(lifeExp ~ year, data = df)
+}
+```
+]]
+
+???
+# model-fitting function
+# Create a new variable in the by_country data frame.
+
+---
+
+layout: false
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+.font5[Model - Life Expectancy]
 ]]
 
 .row[.content.left[
@@ -2205,7 +2313,7 @@ country_model &lt;- function(df) {
 }
 
 by_country &lt;- by_country %&gt;% 
-  mutate(model = map(data, country_model))
+* mutate(model = map(data, country_model))
 head(by_country)
 ```
 
@@ -2232,7 +2340,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Enjoying that Data Frame Goodness]
 ]]
 
 .row[.content.left[
@@ -2265,7 +2373,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Enjoying that Data Frame Goodness]
 ]]
 
 .row[.content.left[
@@ -2297,7 +2405,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[**Transform** + Visualise + Model]
 ]]
 
 .row[.content.left[
@@ -2305,8 +2413,9 @@ class: split-20
 ```r
 by_country &lt;- by_country %&gt;% 
   mutate(
-    resids = map2(data, model, add_residuals)
+*   resids = map2(data, model, add_residuals)
   )
+
 head(by_country)
 ```
 
@@ -2329,13 +2438,14 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Model Residuals]
 ]]
 
 .row[.content.left[
 
 ```r
-resids &lt;- unnest(by_country, resids)
+*resids &lt;- unnest(by_country, resids)
+
 resids
 ```
 
@@ -2365,7 +2475,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Transform + **Visualise** + Model]
 ]]
 
 .row[.content[.split-two[
@@ -2392,7 +2502,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Transform + **Visualise** + Model]
 ]]
 
 .row[.content[.split-two[
@@ -2418,15 +2528,15 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[**Transform** + Visualise + Model]
 ]]
 
 .row[.content.left[
 
 ```r
 by_country %&gt;% 
-  mutate(glance = map(model, broom::glance)) %&gt;% 
-  unnest(glance) %&gt;% 
+* mutate(glance = map(model, broom::glance)) %&gt;%
+* unnest(glance) %&gt;%
   head()
 ```
 
@@ -2453,15 +2563,15 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[**Transform** + Visualise + Model]
 ]]
 
 .row[.content.left[
 
 ```r
 glance &lt;- by_country %&gt;% 
-  mutate(glance = map(model, broom::glance)) %&gt;% 
-  unnest(glance, .drop = TRUE)
+* mutate(glance = map(model, broom::glance)) %&gt;%
+* unnest(glance, .drop = TRUE)
 head(glance)
 ```
 
@@ -2488,14 +2598,14 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Model - Life Expectancy]
 ]]
 
 .row[.content.left[
 
 ```r
 glance %&gt;% 
-  arrange(r.squared)
+* arrange(r.squared)
 ```
 
 ```
@@ -2525,7 +2635,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Transform + **Visualise** + Model]
 ]]
 
 .row[.content[.split-two[
@@ -2550,7 +2660,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font4[Model - Life Expectancy]
+.font5[Transform + **Visualise** + Model]
 ]]
 
 .row[.content[.split-two[
@@ -2599,12 +2709,12 @@ class: split-20
 
 .row[.content[
 .color-main1[.font2[
-* All your coding is only going to be useful if you can effectively communicate the findings to a broader audience of stakeholders, in formats they are comfortable with.
-* This is where R really excels above other programming languages:
-* rmarkdown is an authoring format that enables the easy creation of dynamic documents, presentations, and reports from R. It combines the core syntax of markdown (an easy to write plain text format) with embedded R code chunks that are run so their output can be included in the final document
-* Shiny makes it possible to build fully interactive web-apps and dashboards that puts the analytical and graphical power of R at the fingertips of your users in elegant, browser-based user interfaces
-![rmarkdown](imgs/rmarkdown.png)
-![shiny](imgs/shiny.png)
+* Reproducable documents, presentations, and reports
+* Interactive web-apps and dashboards
+.content.center[
+&lt;img src="imgs/rmarkdown.png" width="15%"&gt;
+&lt;img src="imgs/shiny.png" width="15%"&gt;
+]
 ]]
 ]]
 

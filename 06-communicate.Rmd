@@ -51,12 +51,12 @@ class: split-20
 
 .row[.content[
 .color-main1[.font2[
-* All your coding is only going to be useful if you can effectively communicate the findings to a broader audience of stakeholders, in formats they are comfortable with.
-* This is where R really excels above other programming languages:
-* rmarkdown is an authoring format that enables the easy creation of dynamic documents, presentations, and reports from R. It combines the core syntax of markdown (an easy to write plain text format) with embedded R code chunks that are run so their output can be included in the final document
-* Shiny makes it possible to build fully interactive web-apps and dashboards that puts the analytical and graphical power of R at the fingertips of your users in elegant, browser-based user interfaces
-![rmarkdown](imgs/rmarkdown.png)
-![shiny](imgs/shiny.png)
+* Reproducable documents, presentations, and reports
+* Interactive web-apps and dashboards
+.content.center[
+<img src="imgs/rmarkdown.png" width="15%">
+<img src="imgs/shiny.png" width="15%">
+]
 ]]
 ]]
 
