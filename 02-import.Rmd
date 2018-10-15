@@ -49,13 +49,16 @@ class: split-20
 .white[.font5[Importing Data]]
 ]]
 
-.row[.content[
-.color-main1[.font2[
-R can import data from a diverse set of data sources:
-* Flat files like plain text and delimited data - .txt, .csv, .tsv
-* Data files from proprietary software like - Microsoft Excel, SPSS, SAS
-* Directly from Databases - MySQL, MS SQL Server, PostgreSQL
-* Directly from the Web - APIs, JSON, HTML]]
+.row[
+Flat files, Data files, Databases, Web
+.content.vmiddle.center[
+<img src="imgs/readr.png" width="15%">
+<img src="imgs/readxl.png" width="15%">
+<img src="imgs/haven.png" width="15%">
+<br>
+<img src="imgs/googledrive.png" width="15%">
+<img src="imgs/googlesheets.png" width="15%">
+<img src="imgs/dbplot.png" width="15%">
 ]]
 
 ---
