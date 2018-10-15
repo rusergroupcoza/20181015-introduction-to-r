@@ -66,11 +66,10 @@ class: split-20
 
 .row[
 .content.vmiddle[
-RStudio Cheat Sheets - https://www.rstudio.com/resources/cheatsheets/
 .center[<img src="imgs/ggplot2-cheat-sheet.png" width="90%">]
+RStudio Cheat Sheets - https://www.rstudio.com/resources/cheatsheets/
 ]
 ]
-
 
 ---
 
