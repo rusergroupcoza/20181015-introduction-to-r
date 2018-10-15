@@ -50,42 +50,42 @@ class: split-20
 
 .row[.content[.split-three[
   .column[.content.center[
-  ### `r anicon::faa("podcast", animate="float")` [**Not So Standard Deviations**](http://nssdeviations.com/)<br>
+  ### `r anicon::faa("podcast", animate="float", anitype="hover")` [**Not So Standard Deviations**](http://nssdeviations.com/)<br>
 #### Hilary Parker `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@hspter](http://twitter.com/hspter)<br>
 #### Roger Peng `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@rdpeng](http://twitter.com/rdpeng)<br>
 <br>
-### `r anicon::faa("podcast", animate="float")` [**Credibly Curious**](https://soundcloud.com/crediblycurious)<br>
+### `r anicon::faa("podcast", animate="float", anitype="hover")` [**Credibly Curious**](https://soundcloud.com/crediblycurious)<br>
 #### Saskia Freytag `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@trashystats](http://twitter.com/trashystats)<br>
 #### Nicholas Tierney `r anicon::faa("twitter", animate="pulse", anitype="hover")` [@nj_tierney](http://twitter.com/nj_tierney)<br>
 <br>
-### `r anicon::faa("podcast", animate="float")` [**DataFramed**](https://www.datacamp.com/community/podcast)<br>
+### `r anicon::faa("podcast", animate="float", anitype="hover")` [**DataFramed**](https://www.datacamp.com/community/podcast)<br>
 #### Hugo Bowne-Anderson `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@hugobowne](http://twitter.com/hugobowne)<br>
   ]]
   
   .column[.content.vtop.center[
-### `r anicon::faa("book", animate="float")` [**R for Data Science**](http://r4ds.had.co.nz/)<br>
+### `r anicon::faa("book", animate="float", anitype="hover")` [**R for Data Science**](http://r4ds.had.co.nz/)<br>
 #### Garrett Grolemund `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@StatGarrett](http://twitter.com/StatGarrett)<br>
 #### Hadley Wickham `r anicon::faa("twitter", animate="pulse", anitype="hover")`&nbsp; [@hadleywickham](hhttp://twitter.com/hadleywickham)
 <br>
-### `r anicon::faa("globe", animate="float")` [**RStudio Community**](https://community.rstudio.com/)<br>
+### `r anicon::faa("globe", animate="float", anitype="hover")` [**RStudio Community**](https://community.rstudio.com/)<br>
 A community for all things R and RStudio.
 <br>
-### `r anicon::faa("globe", animate="float")` [**Stack Overflow**](https://stackoverflow.com/questions/tagged/r)<br>
+### `r anicon::faa("globe", animate="float", anitype="hover")` [**Stack Overflow**](https://stackoverflow.com/questions/tagged/r)<br>
 Community for developers to learn, share their knowledge, and build their careers.
 <br>
 
-### `r anicon::faa("globe", animate="float")` [**R-bloggers**](https://www.r-bloggers.com/)<br>
+### `r anicon::faa("globe", animate="float", anitype="hover")` [**R-bloggers**](https://www.r-bloggers.com/)<br>
 The site helps R bloggers and users to connect and follow the “R blogosphere”
   ]]
   
   .column[.content.vtop.center[
-  ### `r anicon::faa("comments", animate="float")` [**RUsers**](https://stackoverflow.com/questions/tagged/r)<br>
+  ### `r anicon::faa("comments", animate="float", anitype="hover")` [**RUsers**](https://stackoverflow.com/questions/tagged/r)<br>
 
 `r anicon::faa("meetup", animate="wrench", anitype="hover")` [Johannesburg](https://www.meetup.com/Joburg-R-Users-Group/)<br>
 `r anicon::faa("meetup", animate="wrench", anitype="hover")` [Cape Town](https://caperuser.wordpress.com/)<br>
 <br>
 
-### `r anicon::faa("comments", animate="float")` [**R-Ladies**](https://www.r-bloggers.com/)<br>
+### `r anicon::faa("comments", animate="float", anitype="hover")` [**R-Ladies**](https://www.r-bloggers.com/)<br>
 
 `r anicon::faa("slack", animate="wrench", anitype="hover")` [R-Ladies Community Slack Workspace](https://rladies-community-slack.herokuapp.com/)<br>
 `r anicon::faa("meetup", animate="wrench", anitype="hover")` [Johannesburg](https://www.meetup.com/rladies-johannesburg/)<br>
