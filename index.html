@@ -2728,17 +2728,12 @@ class: split-20
 
 .row[.content[
 .color-main1[.font2[
-* Combining narrative and commentary with code in a single document is a very powerful concept. It makes your report fully reproducible. That is, a script you can simply re-run whenever your data or code changes and all data-driven R outputs will update automatically in your report. No more copy &amp; pasting data around various MS Office programs!*
-* The output options enables you to share your analysis in the format your audience is most comfortable with, be it:
-* HTML Report (enables the use of interactive graphics)
-* HTML Slideshow (this entire slideshow is written in rmarkdown!)
-* PDF Report
-* MS Word Document
-* MS PowerPoint Slides
-* Dashboards
-* Websites - rusergroup.co.za is written in rmarkdown
-* Having your report as an executable R script also allows you to paramaterise some variables and automate the generation of several different reports - one for each subset of a data set, for example.
-* Check out this video for a better illustration of the problem and solution to traditional data reporting methods. https://www.youtube.com/watch?v=s3JldKoA0zw
+* Output Formats
+.content.center[
+&lt;img src="imgs/rmarkdownoutputformats.png" width="20%"&gt;
+&lt;br&gt;
+]
+* A reproducible workflow
 ]]
 ]]
 
@@ -2746,14 +2741,14 @@ class: split-20
 
 layout: false
 class: split-20
-background-image: url(imgs/rmarkdown-report.png)
-background-size: cover
 
 .row.bg-main1[.content.vmiddle.center[
 .white[.font5[Example of rmarkdown report]]
 ]]
 
-.row[.content[]]
+.row[.content.center[
+&lt;img src="imgs/rmarkdown-report.png" width="70%"&gt;
+]]
 
 ---
 
@@ -2765,16 +2760,11 @@ class: split-20
 
 .row[.content[
 .color-main1[.font2[
-* Shiny goes a step further and allows end-users to interact with a live R session through a user-interface, giving them the power of R without any required knowledge of coding.
-* Shiny dashboards are significantly more powerful than expensive off-the-shelf dashboard software that are limited to visualising the data you supply to them with their own charting libraries. Shiny can draw on the vast eco-system of open-source technology, dynamically run any type of R code you want it to, and feed the results back to the end-user.
-* Example Use Case
-* fetch some live google analytics data
-* merge it with some internal market research data
-* run a model to calculate whether a recent marketing campaign drove a significant increase in web traffic
-* visualise the results to the user in interactive charts
-* give them the option of downloading an auto-generated rmarkdown PDF report
-* And there's no limitations on the look and feel of your app. There's lots of great CSS themes to choose from, or if you know some HTML + CSS you can build a complety bespoke user interace interface from the ground-up.
-* Check out some of the shiny apps we've made over on the Culture of Insight portfolio page.
+* Shiny combines the computational power of R with the interactivity of the modern web.
+.content.center[
+&lt;img src="imgs/superzip-example.png" width="40%"&gt;
+&lt;img src="imgs/retirement-simulation.png" width="40%"&gt;
+]
 ]]
 ]]
 
@@ -2782,14 +2772,14 @@ class: split-20
 
 layout: false
 class: split-20
-background-image: url(imgs/shiny-dashboard.png)
-background-size: cover
 
 .row.bg-main1[.content.vmiddle.center[
 .white[.font5[Shiny Dashboard]]
 ]]
 
-.row[.content[]]
+.row[.content.center[
+&lt;img src="imgs/ggvis_movies.gif" width="50%"&gt;
+]]
 
 ---
 
