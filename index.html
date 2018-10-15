@@ -858,12 +858,12 @@ head(dplyr_github_issues$title)
 ```
 
 ```
-## [1] "Clearer documentation for grouping behavior with `count`"      
-## [2] "Group_by for columns with dates as column name"                
-## [3] "Document `.data` and `!!` in manip verbs"                      
-## [4] "Document semantics of mutate() and filter() on grouped tibbles"
-## [5] "Review quasiquotation examples"                                
-## [6] "Document semantics of colwise operations on grouping variables"
+## [1] "first_n() and last_n()"                                        
+## [2] "Revise filter internals to use less Rcpp protection"           
+## [3] "Clearer documentation for grouping behavior with `count`"      
+## [4] "Group_by for columns with dates as column name"                
+## [5] "Document `.data` and `!!` in manip verbs"                      
+## [6] "Document semantics of mutate() and filter() on grouped tibbles"
 ```
 ]]
 
@@ -1655,11 +1655,10 @@ class: split-20
 
 .row[
 .content.vmiddle[
-RStudio Cheat Sheets - https://www.rstudio.com/resources/cheatsheets/
 .center[&lt;img src="imgs/ggplot2-cheat-sheet.png" width="90%"&gt;]
+RStudio Cheat Sheets - https://www.rstudio.com/resources/cheatsheets/
 ]
 ]
-
 
 ---
 
@@ -1948,7 +1947,7 @@ ggplot(gapminder) +
 &lt;br&gt;
 .center[
 ## Book recommendation
-## .blue[Factfulness] by .blue[Hans Rosling]
+## .orange[Factfulness] by .orange[Hans Rosling]
 ]]]
 .column[.content.center[
 .img90[
@@ -1960,17 +1959,18 @@ ggplot(gapminder) +
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[**Import** + Transform + Visualise]]
+ .white[.font5[.orange[Import] + Transform + Visualise]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
-*geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
-head(geo)
+library(ggplot2)
+library(dplyr)
+geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+*head(geo)
 ```
 ]]
 .column[.content.center[
@@ -2012,22 +2012,47 @@ head(geo)
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[Import + **Transform** + Visualise]]
+ .white[.font5[Import + .orange[Transform] + Visualise]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
+library(ggplot2)
+library(dplyr)
 geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
-*#head(geo)
+#head(geo)
+largestMunicipalities &lt;- geo %&gt;%
+  select(AREA, MUNICNAME) %&gt;%
+  arrange(desc(AREA)) %&gt;%
+  slice(1:10)
+*largestMunicipalities
 ```
 ]]
 .column[.content.center[
 .img90[
 
+```
+## Simple feature collection with 10 features and 2 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 16.45189 ymin: -34.83417 xmax: 32.94498 ymax: -22.12503
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs
+##       AREA       MUNICNAME                       geometry
+## 1  36128.1          Hantam MULTIPOLYGON (((19.01301 -3...
+## 2  32273.9  Karoo Hoogland MULTIPOLYGON (((20.59158 -3...
+## 3  26358.0      Kai !Garib MULTIPOLYGON (((19.99916 -2...
+## 4  23827.3 Kagisano/Molopo MULTIPOLYGON (((24.26603 -2...
+## 5  22468.4            Mier MULTIPOLYGON (((20.84199 -2...
+## 6  21916.6   Beaufort West MULTIPOLYGON (((23.63653 -3...
+## 7  21779.8    //Khara Hais MULTIPOLYGON (((21.71008 -2...
+## 8  20389.2          Ubuntu MULTIPOLYGON (((23.22298 -3...
+## 9  20172.0    Joe Morolong MULTIPOLYGON (((23.9173 -27...
+## 10 18332.8     Tsantsabane MULTIPOLYGON (((22.96247 -2...
+```
 ]]]]]
 
 ---
@@ -2035,23 +2060,127 @@ geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
- .white[.font5[Import + Transform + **Visualise**]]
+ .white[.font5[Import + Transform + .orange[Visualise]]]
 ]]
 .row[
 .split-40[
 .column[.content[
 
 ```r
-#https://africaopendata.org/dataset/municipal-demarcation-board-national-boundary-data/resource/9a348186-47d6-4c98-acd4-92b9bf8c1745
 library(sf)
+library(ggplot2)
+library(dplyr)
 geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
 #head(geo)
-*ggplot() + geom_sf(data = geo)
+largestMunicipalities &lt;- geo %&gt;%
+  select(AREA, MUNICNAME) %&gt;%
+  arrange(desc(AREA)) %&gt;%
+  slice(1:10)
+#largestMunicipalities
+ggplot() +
+* geom_sf(data = geo)
 ```
 ]]
 .column[.content.center[
 .img90[
 &lt;img src="imgs/output14-1.png" width="90%" /&gt;
+]]]]]
+
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + .orange[Visualise]]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+library(sf)
+library(ggplot2)
+library(dplyr)
+geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo)
+largestMunicipalities &lt;- geo %&gt;%
+  select(AREA, MUNICNAME) %&gt;%
+  arrange(desc(AREA)) %&gt;%
+  slice(1:10)
+#largestMunicipalities
+ggplot() +
+  geom_sf(data = geo) +
+* geom_sf(data = largestMunicipalities, aes(fill = MUNICNAME))
+```
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output15-1.png" width="90%" /&gt;
+]]]]]
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + .orange[Visualise]]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+library(sf)
+library(ggplot2)
+library(dplyr)
+geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo)
+largestMunicipalities &lt;- geo %&gt;%
+  select(AREA, MUNICNAME) %&gt;%
+  arrange(desc(AREA)) %&gt;%
+  slice(1:10)
+#largestMunicipalities
+ggplot() +
+  geom_sf(data = geo) +
+  geom_sf(data = largestMunicipalities, aes(fill = MUNICNAME)) +
+* labs(title= "South Africa's largest municipalities by area")
+```
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output16-1.png" width="90%" /&gt;
+]]]]]
+---
+
+class: split-20
+
+.row.bg-main1[.content.vmiddle.center[
+ .white[.font5[Import + Transform + .orange[Visualise]]]
+]]
+.row[
+.split-40[
+.column[.content[
+
+```r
+library(sf)
+library(ggplot2)
+library(dplyr)
+geo &lt;- st_read("data/LocalMunicipalities2011.shp", quiet = TRUE)
+#head(geo)
+largestMunicipalities &lt;- geo %&gt;%
+  select(AREA, MUNICNAME) %&gt;%
+  arrange(desc(AREA)) %&gt;%
+  slice(1:10)
+#largestMunicipalities
+ggplot() +
+  geom_sf(data = geo) +
+  geom_sf(data = largestMunicipalities, aes(fill = MUNICNAME)) +
+  labs(title= "South Africa's largest municipalities by area") +
+* theme_bw(base_size=12)
+```
+]]
+.column[.content.center[
+.img90[
+&lt;img src="imgs/output17-1.png" width="90%" /&gt;
 ]]]]]
 
 ---
