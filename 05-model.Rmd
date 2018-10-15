@@ -46,7 +46,7 @@ layout: false
 class: split-20
 
 .row.bg-main1[.content.vmiddle.center[
-.font5[Transform + Visulaise + **Model**]
+.font5[Transform + Visualise + **Model**]
 ]]
 
 .row[.content.vmiddle.center[

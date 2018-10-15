@@ -281,7 +281,9 @@ class: split-20
 .white[.font5[Packages]]
 ]]
 
-.row[.content[]]
+.row[.content.vmiddle.center[
+<img src="imgs/UseRHex.png" width="50%">
+]]
 
 ???
 
