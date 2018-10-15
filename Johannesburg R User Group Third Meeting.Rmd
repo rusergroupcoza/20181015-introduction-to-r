@@ -1,0 +1,110 @@
+---
+title: "Johannesburg R User Group Third Meeting"
+author: "Luis de Sousa"
+date: "2018/10/11 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    seal: true
+    lib_dir: libs
+    css: ["assets/kunoichi.css", "assets/ninpo.css", "assets/ninjutsu.css"]
+    self_contained: false
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# Code of conduct
+
+* A member of the R Community is:
+* Open
++Members of the community are open to collaboration, whether it's on projects, working groups, packages, problems, or otherwise.
+
+*Considerate
++Members of the community are considerate of their peers - other R users.
+
+*Respectful
++Members of the community are respectful.
+
+---
+
+# Agenda
+
+* Start at 18:00
+
+* 18:00 - 18:05 Welcome - Luis de Sousa
+* 18:05 - 18:10 A word from our hosts Jemstep - Kevin Trethewey
+* 18:10 – 20:00 Introduction to R - Gemma Dawson & Luis de Sousa
+
+* Finish at 20:00
+
+---
+
+# Where to find us
+
+* Website - https://www.rusergroup.co.za
+* Meetup - https://www.meetup.com/Joburg-R-Users-Group
+* GitHub - https://github.com/rusergroupcoza
+
+---
+
+# Community News
+
+Johannesburg R User Group
+Tidy geometries [GitHub]
+Date: 29 June 2018
+Location: Microsoft, Bryanston
+
+August Meetup [GitHub]
+Date: 10 August 2018
+Location: Discovery, Sandton
+
+---
+
+# Community News
+R Ladies Johannesburg
+The importance of women in Data Science [GitHub]
+Date: 19 July 2018
+Location: Wits, Braamfontein
+
+Exploratory Data Analysis & Prediction on House Prices [Meetup]
+Date: 28 August 2018
+Location: Wits, Braamfontein
+
+---
+
+# Community News
+R Ladies Cape Town
+Mapping in R [GitHub]
+Date: 26 July 2018
+Location: Bandwidth Barn, Woodstock
+
+August Meetup [Meetup]
+Date: 21 August 2018
+Location: TBA
+
+---
+
+# Local Events
+Spatial Statistics
+Date: 21 - 22 August 2018
+Location: Enterprises University of Pretoria
+Cost: R 6 000.00
+
+South African Carpentry Connect
+Date: 3 - 7 September 2018
+Location: Birchwood Hotel & Conference Centre, Johannesburg
+
+Deep Learning Indaba
+Date: 9-14 September 2018
+Location: Stellenbosch University
+
+---
+
+# Industry News
+16th July 2018 - RStudio v1.2.830-1 Preview
+Python and Notebooks - Use a shared Python session to execute Python chunks via reticulate
+PowerPoint - Create PowerPoint presentations with R Markdown
+Jobs - Run any R script as a background job in a clean R session
+SQL - Author SQL queries in RStudio and preview in the SQL Results pane
