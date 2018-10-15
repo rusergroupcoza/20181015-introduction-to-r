@@ -61,10 +61,10 @@ background-size: cover
 
 .row[.content[.split-two[
 .column[.content.vmiddle.center[
-.white[hello]
+.white[]
 ]]
 .column[.content.vmiddle.center[
-.white[hello]
+.white[]
 ]]
 ]]]
 
@@ -88,10 +88,10 @@ background-size: cover
 
 .row[.content[.split-two[
 .column[.content.vmiddle.center[
-.white[hello]
+.white[]
 ]]
 .column[.content.vmiddle.center[
-.white[hello]
+.white[]
 ]]
 ]]]
 
@@ -104,20 +104,113 @@ R - automate & save time
 ---
 
 layout: false
-class: split-20
+class: middle center bg-main1
 
-.row.bg-main1[.content.vmiddle.center[
-.white[.font5[RStudio]]
-]]
-
-.row[.content.vmiddle.center[
-<img src="imgs/RStudio.png" width="75%">
-]]
+<img src="imgs/RStudio1.png" width="100%">
 
 ???
 Explain sections
 Integrated with GIT (yay - version control)
 Accessible Cheatsheets
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio2.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio3.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio4.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio5.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio6.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio7.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio8.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio9.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio10.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio11.png" width="100%">
+
+???
+
+---
+
+layout: false
+class: middle center bg-main1
+
+<img src="imgs/RStudio12.png" width="100%">
+
+???
 
 ---
 
