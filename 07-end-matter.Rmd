@@ -114,13 +114,6 @@ class: fade-row2-col1 fade-row2-col2
 count: false
 
 ---
-layout: false
-# References
-
-* https://github.com/paulc91
-* http://jkunst.com/intro-r-workshop
-
----
 
 layout: false
 class: split-70 hide-slide-number
