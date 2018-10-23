@@ -69,7 +69,7 @@ background-size: cover
 .column.slide-in-left[
 .sliderbox.vmiddle.shade_main.left[
   .font5[Luis de Sousa]<br>
-  <img src="imgs/syeop-logo.jpg" width="70%">
+  <img src="imgs/syeop-logo.png" width="70%">
 ]]
 
 .column[.content.vmiddle.right[
