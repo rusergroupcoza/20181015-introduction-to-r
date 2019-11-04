@@ -53,6 +53,6 @@ deploy:
   local_dir: /
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your Travis repository, as a secure variable
-  keep-history: true
+  keep-history: FALSE
   on:
     branch: master
